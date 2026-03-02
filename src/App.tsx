@@ -86,9 +86,8 @@ export default function App() {
                   © 2026 NITYA.EXE // ALL RIGHTS RESERVED
                 </div>
                 <div className="flex gap-8 font-mono text-xs opacity-40">
-                  <a href="#" className="hover:text-accent-neon transition-colors">GITHUB</a>
-                  <a href="#" className="hover:text-accent-neon transition-colors">LINKEDIN</a>
-                  <a href="#" className="hover:text-accent-neon transition-colors">TWITTER</a>
+                  <a href="https://github.com/Nitya-nama" className="hover:text-accent-neon transition-colors">GITHUB</a>
+                  <a href="https://www.linkedin.com/in/nitya-nama/" className="hover:text-accent-neon transition-colors">LINKEDIN</a>
                 </div>
                 <div className="font-mono text-[10px] bg-accent-neon text-black px-2 py-1 font-bold">
                   V.2.0.4_STABLE
