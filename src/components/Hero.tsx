@@ -30,9 +30,11 @@ export const Hero: React.FC = () => {
           className="text-6xl md:text-9xl font-bold leading-none tracking-tighter mb-4"
         >
           NITYA NAMA<br />
-          <span className="text-transparent border-text" style={{ WebkitTextStroke: '2px var(--text)' }}>
-            PYTHON FULL STACK DEVELOPER
-          </span>
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
+            AI ENGINEER
+            <br />
+            <span className="text-primary">FULL STACK ARCHITECT</span>
+          </h1>
         </motion.h1>
 
         <motion.div 
@@ -42,10 +44,11 @@ export const Hero: React.FC = () => {
           className="thick-border bg-accent-yellow text-black p-6 panel-shadow max-w-2xl mx-auto mb-12"
         >
           <p className="font-mono text-lg font-bold mb-2">
-            Building AI-powered and scalable web applications.
+              I design and deploy intelligent systems — combining machine learning,
+              scalable backend architecture, and modern frontend engineering.
           </p>
           <div className="flex justify-center gap-4 font-mono text-sm opacity-80">
-            <span>Python</span> • <span>React</span> • <span>SQL and MongoDB</span> • <span>Flask</span>
+          • <span>Python</span> • <span>React</span> • <span>SQL</span> • <span>Flask</span> • <span>MongoDB</span>
           </div>
         </motion.div>
 

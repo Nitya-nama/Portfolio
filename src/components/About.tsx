@@ -63,7 +63,7 @@ export const About: React.FC = () => {
             </div>
             <div className="thick-border bg-accent-neon text-black px-4 py-2 flex items-center gap-2 font-mono text-xs font-bold">
               <CheckCircle size={14} />
-              STATUS: AVAILABLE
+              SYSTEM_STATUS: BUILDING INTELLIGENT SYSTEMS
             </div>
           </div>
         </div>

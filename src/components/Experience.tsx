@@ -3,36 +3,37 @@ import { motion } from 'motion/react';
 
 const experiences = [
   {
-    title: 'FREELANCE FULL-STACK DEVELOPER',
-    company: 'SELF_EMPLOYED',
-    date: 'Nov 2025 - PRESENT',
+    title: "Python Full Stack Intern",
+    company: "PySpiders, Bengaluru",
+    date: "Jan 2026 – Present",
     color: 'bg-yellow-400',
     description: [
-      'Building responsive and interactive web applications using HTML5, CSS3, and JavaScript',
-      'Developing modern web applications using React, Next.js, and Node.js',
-      'Creating custom web solutions tailored to client requirements'
+      "Developing end-to-end web applications using Python, Flask/Django, and MySQL.",
+      "Designing REST APIs and integrating frontend interfaces with backend services.",
+      "Applying clean architecture and scalable system design principles.",
+      "Strengthening deployment workflows and production-ready development practices."
     ]
   },
   {
-    title: 'DATA ENTRY CONTRACT',
-    company: 'Injala India',
-    date: 'Aug 2025 - Nov 2025',
+    title: "AI/ML Intern",
+    company:  "Happy Inbox",
+    date: "Feb 2025 – Mar 2025",
     color: 'bg-red-500',
     description: [
-      'Processing and entering large volumes of data with 99%+ accuracy',
-      'Maintaining data quality standards and performing regular audits',
-      'Collaborating with team members to meet daily and weekly targets'
+       "Engineered ML models on 20,000+ user logs, boosting recommendation accuracy by 65%.",
+      "Optimized preprocessing pipelines, reducing model training time by 40%.",
+      "Conducted reproducible experiments for performance optimization."
     ]
   },
   {
-    title: 'PROJECT MANAGER',
-    company: 'SELF_EMPLOYED',
-    date: 'Dec 2024 - Aug 2025',
+    title: "Data Analyst Associate Intern",
+    company: "Excelerate",
+    date:  "Mar 2025 – Apr 2025",
     color: 'bg-green-500',
     description: [
-      'Managing multiple client projects from initiation to completion',
-      'Coordinating with cross-functional teams to ensure timely delivery',
-      'Implementing agile methodologies to improve workflow efficiency'
+      "Designed interactive dashboards improving financial visibility by 35%.",
+      "Optimized SQL queries, reducing report generation time by 40%.",
+      "Implemented ML-driven trend analysis across multiple departments."
     ]
   }
 ];

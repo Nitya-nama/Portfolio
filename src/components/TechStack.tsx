@@ -4,20 +4,15 @@ import { Cpu, Zap } from 'lucide-react';
 
 const skills = [
   { name: 'REACT', category: 'FRAMEWORK' },
-  { name: 'NEXT.JS', category: 'FRAMEWORK' },
   { name: 'PYTHON', category: 'LANGUAGE' },
-  { name: 'NODE.JS', category: 'BACKEND' },
   { name: 'TAILWIND', category: 'STYLING' },
-  { name: 'MYSQL', category: 'DATA' },
+  { name: 'SQL', category: 'DATA' },
   { name: 'HTML5', category: 'CORE' },
   { name: 'GIT', category: 'VERSION' },
-  { name: 'GRAPHQL', category: 'QUERY' },
+  { name: 'MONGODB', category: 'QUERY' },
   { name: 'GITHUB', category: 'OPS' },
   { name: 'JAVA', category: 'LANGUAGE' },
   { name: 'DJANGO', category: 'FRAMEWORK' },
-  { name: 'PHP', category: 'LANGUAGE' },
-  { name: 'LARAVEL', category: 'FRAMEWORK' },
-  { name: 'THREE.JS', category: '3D' },
   { name: 'C++', category: 'LANGUAGE' },
 ];
 
