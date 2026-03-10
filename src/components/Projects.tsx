@@ -4,28 +4,33 @@ import { ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
-    title: 'STOCKEASY',
-    description: 'An Online Stock Market Platform with Stock analysis, Chatbot and admin panel for user support.',
-    tags: ['Django', 'Python', 'Streamlit', 'Redis', 'Websockets', 'MySQL', 'Yfinance API'],
-    image: 'https://picsum.photos/seed/stock/600/400'
+    title: 'PHARMAGUARD',
+    description: 'AI-powered pharmacogenomic risk prediction platform that analyzes patient genetic (.VCF) data to predict personalized drug safety risks using CPIC-aligned guidelines. Built with React (Vite) frontend and Flask REST API backend enabling real-time genomic processing and explainable AI-driven clinical recommendations.',
+    tags: ['React (Vite)', 'Flask', 'Python', 'REST APIs', 'CPIC Guidelines', 'VCF Genomics', 'Vercel'],
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWw8ri5Dxq2i1ayCFhyzxAEdahifhh2bgItw&s',
+    github: 'https://github.com/Chandan-N-2004/RIFT2026_AI_HUNTERS',
+    live: 'https://rift-2026-ai-hunters.vercel.app/'
   },
   {
-    title: 'RESUMEIQ',
-    description: 'A Resume Analyzer + Resume Builder which helps users check there resume and also build new resume from scratch.',
-    tags: ['Streamlit', 'MySQL', 'Gemini API'],
-    image: 'https://picsum.photos/seed/resume/600/400'
+    title: 'CINERENT ERP',
+    description: 'Scalable full-stack ERP system with JWT-based multi-role authentication managing 1,000+ transactional records across billing, inventory, and equipment rental modules. Improved workflow efficiency by 35% through modularized React components with Context API/Redux and lazy loading.',
+    tags: ['React', 'Node.js', 'REST APIs', 'JWT Auth', 'Context API/Redux', 'MySQL'],
+    image: 'https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/c7cd9884349537.5d5a84abd818a.jpg',
+    github: 'https://github.com/Nitya-nama/Cinerent'
   },
   {
-    title: 'A.I.V.A CHATBOT',
-    description: 'Chatbot AI which answers all questions, does tasks assigned and also analyzes documents given by users.',
-    tags: ['Django', 'Python', 'MySQL', 'AI'],
-    image: 'https://picsum.photos/seed/aiva/600/400'
+    title: 'EMOTION DETECTION AI',
+    description: 'Transformer-based NLP emotion classification web app using Hugging Face BERT, achieving 92% accuracy with optimized inference pipeline reducing API response latency to <250ms. Full-stack Flask app with RESTful APIs improving throughput by 35% through backend caching and async request handling.',
+    tags: ['Flask', 'Python', 'Hugging Face', 'BERT', 'NLP', 'JavaScript', 'REST APIs'],
+    image: 'https://emotionlogic.ai/wp-content/uploads/2023/08/Firefly-Generate-illustrative-visual-representations-depicting-methods-of-emotion-detection-using-vo-e1691590316220.jpg',
+    github: 'https://github.com/Nitya-nama/Emotion-Detection'
   },
   {
-    title: 'PORTFOLIO V1',
-    description: 'Portfolio made Using React, node and three.js. Fully Responsive and 3d animated components.',
-    tags: ['React', 'Node', 'Three.js'],
-    image: 'https://picsum.photos/seed/port/600/400'
+    title: 'ECOVISION',
+    description: 'AI-enhanced economic forecasting web app with predictive ML models using ARIMA and LSTM, achieving 88% forecasting accuracy through feature engineering and cross-validation. Flask REST API backend with interactive JavaScript dashboard reducing prediction time by 40%.',
+    tags: ['Python', 'Flask', 'Scikit-learn', 'ARIMA', 'LSTM', 'JavaScript', 'REST APIs'],
+    image: 'https://static.wixstatic.com/media/371c03_0f3513cb4f3944b1a8329d2b8bdc7fc2~mv2.png/v1/fit/w_2500,h_1330,al_c/371c03_0f3513cb4f3944b1a8329d2b8bdc7fc2~mv2.png',
+    github: 'https://github.com/Nitya-nama/EcoVision'
   }
 ];
 
