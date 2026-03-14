@@ -1,84 +1,396 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────
+   FONTS
+───────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  
-  --color-bg-light: #f5f5f0;
-  --color-bg-dark: #0a0a0a;
-  --color-panel-light: #ffffff;
-  --color-panel-dark: #111111;
-  --color-accent-neon: #00ff00;
-  --color-accent-yellow: #ffff00;
+
+  /* ── LIGHT MODE PALETTE (Apple-inspired) ── */
+  --color-bg-light:        #ffffff;
+  --color-bg-light-alt:    #f5f5f7;   /* Apple's signature off-white */
+  --color-panel-light:     #ffffff;
+  --color-panel-light-alt: #f5f5f7;
+  --color-border-light:    #d2d2d7;   /* Apple's subtle grey border */
+  --color-text-light:      #1d1d1f;   /* Apple's near-black */
+  --color-text-light-2:    #6e6e73;   /* Apple's secondary grey */
+  --color-text-light-3:    #86868b;   /* Apple's tertiary grey */
+
+  /* ── DARK MODE PALETTE (Neria Katz neon-purple) ── */
+  --color-bg-dark:         #0d0b14;   /* deep dark purple-black */
+  --color-bg-dark-alt:     #13101f;   /* slightly lighter layer */
+  --color-panel-dark:      #1a1530;   /* card/panel surface */
+  --color-panel-dark-2:    #221d3a;   /* elevated panel */
+  --color-border-dark:     #2e2850;   /* subtle purple border */
+  --color-text-dark:       #f0eeff;   /* near-white with purple tint */
+  --color-text-dark-2:     #a89fd8;   /* muted lavender */
+  --color-text-dark-3:     #6b5fa0;   /* dim purple */
+
+  /* ── SHARED ACCENT COLORS ── */
+  --color-violet:          #6e3bff;   /* electric violet (primary accent) */
+  --color-violet-light:    #8b5cf6;   /* lighter violet for light mode */
+  --color-violet-glow:     rgba(110, 59, 255, 0.35);
+  --color-magenta:         #ff2d9b;   /* hot magenta (secondary accent) */
+  --color-magenta-glow:    rgba(255, 45, 155, 0.3);
+  --color-cyan:            #00d4ff;   /* electric cyan (tertiary accent) */
+  --color-cyan-glow:       rgba(0, 212, 255, 0.3);
+
+  /* Light mode accents (toned down for readability on white) */
+  --color-accent-light-1:  #5b28e8;   /* deep violet on white */
+  --color-accent-light-2:  #e8006e;   /* deep magenta on white */
+  --color-accent-light-3:  #0099bb;   /* deep cyan on white */
 }
 
+/* ─────────────────────────────────────────────
+   CSS CUSTOM PROPERTIES — LIGHT (default)
+   Maps semantic tokens to Apple palette
+───────────────────────────────────────────── */
 @layer base {
   :root {
-    --bg: var(--color-bg-light);
-    --text: #000000;
-    --border: #000000;
-    --panel: var(--color-panel-light);
-    --grid-dots: rgba(0, 0, 0, 0.1);
+    /* Surfaces */
+    --bg:           #ffffff;
+    --bg-alt:       #f5f5f7;
+    --panel:        #ffffff;
+    --panel-alt:    #f5f5f7;
+
+    /* Text */
+    --text:         #1d1d1f;
+    --text-2:       #6e6e73;
+    --text-3:       #86868b;
+
+    /* Borders */
+    --border:       #d2d2d7;
+    --border-focus: #5b28e8;
+
+    /* Accents */
+    --accent-1:     #5b28e8;   /* violet */
+    --accent-2:     #e8006e;   /* magenta */
+    --accent-3:     #0099bb;   /* cyan */
+    --accent-glow:  rgba(91, 40, 232, 0.15);
+
+    /* Grid dots */
+    --grid-dots:    rgba(0, 0, 0, 0.06);
+
+    /* Gradient */
+    --grad-main:    linear-gradient(135deg, #5b28e8, #0099bb);
+    --grad-text:    linear-gradient(135deg, #5b28e8 0%, #0099bb 100%);
+    --grad-hot:     linear-gradient(135deg, #5b28e8 0%, #e8006e 100%);
+
+    /* Shadows */
+    --shadow-sm:    0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md:    0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.05);
+    --shadow-lg:    0 12px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-accent: 0 8px 32px rgba(91, 40, 232, 0.20);
+
+    /* Scanline tint (Apple: none — very subtle) */
+    --scanline-color: rgba(91, 40, 232, 0.025);
   }
 
+  /* ─────────────────────────────────────────
+     DARK MODE — Neria Katz purple/neon palette
+  ───────────────────────────────────────── */
   .dark {
-    --bg: var(--color-bg-dark);
-    --text: #ffffff;
-    --border: #333333;
-    --panel: var(--color-panel-dark);
-    --grid-dots: rgba(255, 255, 255, 0.05);
+    /* Surfaces */
+    --bg:           #0d0b14;
+    --bg-alt:       #13101f;
+    --panel:        #1a1530;
+    --panel-alt:    #221d3a;
+
+    /* Text */
+    --text:         #f0eeff;
+    --text-2:       #a89fd8;
+    --text-3:       #6b5fa0;
+
+    /* Borders */
+    --border:       #2e2850;
+    --border-focus: #6e3bff;
+
+    /* Accents — full neon in dark mode */
+    --accent-1:     #6e3bff;   /* electric violet */
+    --accent-2:     #ff2d9b;   /* hot magenta */
+    --accent-3:     #00d4ff;   /* electric cyan */
+    --accent-glow:  rgba(110, 59, 255, 0.35);
+
+    /* Grid dots */
+    --grid-dots:    rgba(110, 59, 255, 0.06);
+
+    /* Gradient */
+    --grad-main:    linear-gradient(135deg, #6e3bff, #00d4ff);
+    --grad-text:    linear-gradient(135deg, #6e3bff 0%, #00d4ff 100%);
+    --grad-hot:     linear-gradient(135deg, #6e3bff 0%, #ff2d9b 100%);
+
+    /* Shadows — glow-based in dark */
+    --shadow-sm:    0 1px 3px rgba(0,0,0,0.4);
+    --shadow-md:    0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(110,59,255,0.08);
+    --shadow-lg:    0 12px 48px rgba(0,0,0,0.6), 0 0 40px rgba(110,59,255,0.12);
+    --shadow-accent: 0 8px 40px rgba(110, 59, 255, 0.45);
+
+    /* Scanline tint — violet in dark mode */
+    --scanline-color: rgba(110, 59, 255, 0.06);
+  }
+
+  /* ─────────────────────────────────────────
+     BASE STYLES
+  ───────────────────────────────────────── */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
   }
 
   body {
     background-color: var(--bg);
     color: var(--text);
-    transition: background-color 0.5s ease, color 0.5s ease;
+    font-family: var(--font-sans);
+    transition:
+      background-color 0.4s ease,
+      color 0.4s ease;
     background-image: radial-gradient(var(--grid-dots) 1px, transparent 1px);
     background-size: 32px 32px;
-    font-family: var(--font-sans);
   }
+
+  /* Selection highlight */
+  ::selection {
+    background: var(--accent-1);
+    color: #fff;
+  }
+
+  /* Scrollbar (dark mode only — subtle violet) */
+  .dark ::-webkit-scrollbar { width: 6px; }
+  .dark ::-webkit-scrollbar-track { background: var(--bg); }
+  .dark ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+  }
+  .dark ::-webkit-scrollbar-thumb:hover { background: var(--accent-1); }
 
   h1, h2, h3, .system-font {
     font-family: var(--font-mono);
     text-transform: uppercase;
+    letter-spacing: -0.02em;
   }
 }
 
+/* ─────────────────────────────────────────────
+   UTILITY CLASSES
+───────────────────────────────────────────── */
+
+/* Borders */
 @utility thick-border {
   border: 3px solid var(--border);
 }
 
+@utility thin-border {
+  border: 1px solid var(--border);
+}
+
+/* Apple-style card shadow (light) / glow (dark) */
 @utility panel-shadow {
-  box-shadow: 8px 8px 0px 0px var(--border);
+  box-shadow: var(--shadow-md);
+  .dark & {
+    box-shadow: var(--shadow-lg);
+  }
 }
 
+/* Old brutal offset shadow — kept for backward compat */
+@utility brutal-shadow {
+  box-shadow: 6px 6px 0px 0px var(--border);
+}
+
+/* Gradient text utility */
+@utility gradient-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility gradient-text-hot {
+  background: var(--grad-hot);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
 @utility neon-glow {
-  text-shadow: 0 0 10px var(--color-accent-neon);
+  text-shadow: 0 0 20px var(--accent-1), 0 0 40px var(--accent-glow);
 }
 
+@utility accent-glow {
+  box-shadow: 0 0 24px var(--accent-glow), var(--shadow-md);
+}
+
+/* Glass card — key component for both modes */
+@utility glass-card {
+  background: color-mix(in srgb, var(--panel) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  box-shadow: var(--shadow-md);
+}
+
+@utility glass-card-hover {
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  &:hover {
+    box-shadow: var(--shadow-accent);
+    border-color: color-mix(in srgb, var(--accent-1) 40%, transparent);
+    transform: translateY(-2px);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────────── */
+
+/* Primary — gradient fill (works both modes) */
 @utility btn-primary {
-  @apply thick-border bg-black text-white px-6 py-2 uppercase font-mono panel-shadow transition-all duration-200;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--grad-main);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  box-shadow: var(--shadow-accent);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
   &:hover {
-    @apply bg-white text-black;
+    opacity: 0.88;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px var(--accent-glow);
   }
   &:active {
-    @apply translate-x-1 translate-y-1 shadow-none;
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
+/* Secondary — ghost with gradient border */
 @utility btn-secondary {
-  @apply thick-border bg-white text-black px-6 py-2 uppercase font-mono panel-shadow transition-all duration-200;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: transparent;
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+
+  /* gradient border via background-clip trick */
+  background-image: linear-gradient(var(--panel), var(--panel)),
+                    var(--grad-main);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border: 1.5px solid transparent;
+
   &:hover {
-    @apply bg-black text-white;
+    background-image: var(--grad-main), var(--grad-main);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-accent);
   }
   &:active {
-    @apply translate-x-1 translate-y-1 shadow-none;
+    transform: translateY(0);
   }
 }
 
+/* Legacy brutal button — keep existing components working */
+@utility btn-brutal {
+  @apply thick-border bg-black text-white px-6 py-2 uppercase font-mono brutal-shadow transition-all duration-200;
+  &:hover {
+    background: var(--accent-1);
+    border-color: var(--accent-1);
+  }
+  &:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   ACCENT COLOR HELPERS
+   Use these to quickly apply themed accent colors
+───────────────────────────────────────────── */
+@utility text-accent {
+  color: var(--accent-1);
+}
+
+@utility text-accent-2 {
+  color: var(--accent-2);
+}
+
+@utility text-accent-3 {
+  color: var(--accent-3);
+}
+
+@utility bg-accent {
+  background-color: var(--accent-1);
+}
+
+@utility border-accent {
+  border-color: var(--accent-1);
+}
+
+/* ─────────────────────────────────────────────
+   BACKWARD COMPATIBILITY
+   Old code used bg-accent-neon / bg-accent-yellow
+   Map them to new tokens so nothing breaks
+───────────────────────────────────────────── */
+@layer base {
+  :root {
+    --color-accent-neon:   var(--accent-3);   /* cyan replaces neon-green */
+    --color-accent-yellow: var(--accent-2);   /* magenta replaces yellow */
+  }
+}
+
+/* ─────────────────────────────────────────────
+   PANEL / SURFACE HELPERS
+───────────────────────────────────────────── */
+@utility bg-panel {
+  background-color: var(--panel);
+}
+
+@utility bg-panel-alt {
+  background-color: var(--panel-alt);
+}
+
+@utility text-muted {
+  color: var(--text-2);
+}
+
+@utility text-dimmed {
+  color: var(--text-3);
+}
+
+/* ─────────────────────────────────────────────
+   SCANLINE ANIMATION
+   Light: barely visible violet wash
+   Dark: purple neon sweep
+───────────────────────────────────────────── */
 @keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+  0%   { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
 }
 
 .scanline {
@@ -86,9 +398,84 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
-  background: linear-gradient(to bottom, transparent, rgba(0, 255, 0, 0.05), transparent);
-  animation: scanline 8s linear infinite;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--scanline-color),
+    transparent
+  );
+  animation: scanline 10s linear infinite;
   pointer-events: none;
   z-index: 50;
+}
+
+/* ─────────────────────────────────────────────
+   DARK MODE ATMOSPHERIC GLOW
+   Adds the signature purple ambient light from
+   the Neria Katz reference
+───────────────────────────────────────────── */
+.dark body::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 60vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(110, 59, 255, 0.10) 0%,
+    rgba(255, 45, 155, 0.04) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─────────────────────────────────────────────
+   LINK HOVER
+───────────────────────────────────────────── */
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  a:hover {
+    color: var(--accent-1);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   FOCUS RING (accessibility)
+───────────────────────────────────────────── */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--accent-1);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   INPUT STYLES
+───────────────────────────────────────────── */
+@layer base {
+  input, textarea, select {
+    background: transparent;
+    color: var(--text);
+    border-bottom: 1.5px solid var(--border);
+    transition: border-color 0.2s ease;
+    font-family: var(--font-mono);
+
+    &:focus {
+      outline: none;
+      border-color: var(--accent-1);
+    }
+
+    &::placeholder {
+      color: var(--text-3);
+    }
+  }
 }

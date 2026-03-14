@@ -17,37 +17,53 @@ export const Hero: React.FC = () => {
         transition={{ delay: 0.2 }}
         className="mb-8"
       >
-        <div className="thick-border bg-panel px-4 py-1 flex items-center gap-2 panel-shadow">
-          <Activity size={14} className="text-accent-neon animate-pulse" />
-          <span className="font-mono text-xs font-bold">SYSTEM_STATUS: ONLINE</span>
+        <div className="thick-border px-4 py-1 flex items-center gap-2 panel-shadow"
+          style={{ background: 'var(--panel)', borderColor: 'var(--border)' }}>
+          <Activity size={14} style={{ color: 'var(--accent-1)' }} className="animate-pulse" />
+          <span className="font-mono text-xs font-bold" style={{ color: 'var(--text)' }}>SYSTEM_STATUS: ONLINE</span>
         </div>
       </motion.div>
 
       <div className="text-center z-10">
-        <motion.h1 
+        <motion.h1
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           className="text-6xl md:text-9xl font-bold leading-none tracking-tighter mb-4"
+          style={{ color: 'var(--text)' }}
         >
           NITYA NAMA<br />
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
+          <span className="block text-5xl md:text-7xl font-bold leading-tight tracking-tight mt-2"
+            style={{ color: 'var(--text)' }}>
             AI ENGINEER
             <br />
-            <span className="text-primary">FULL STACK ARCHITECT</span>
-          </h1>
+            <span style={{
+              background: 'var(--grad-text)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
+              FULL STACK ARCHITECT
+            </span>
+          </span>
         </motion.h1>
 
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="thick-border bg-accent-yellow text-black p-6 panel-shadow max-w-2xl mx-auto mb-12"
+          className="thick-border p-6 panel-shadow max-w-2xl mx-auto mb-12"
+          style={{
+            background: 'var(--panel)',
+            borderColor: 'var(--accent-1)',
+            color: 'var(--text)',
+          }}
         >
           <p className="font-mono text-lg font-bold mb-2">
               I design and deploy intelligent systems — combining machine learning,
               scalable backend architecture, and modern frontend engineering.
           </p>
-          <div className="flex justify-center gap-4 font-mono text-sm opacity-80">
+          <div className="flex justify-center gap-4 font-mono text-sm opacity-80"
+            style={{ color: 'var(--text-2)' }}>
           • <span>Python</span> • <span>React</span> • <span>SQL</span> • <span>Flask</span> • <span>MongoDB</span>
           </div>
         </motion.div>
@@ -58,10 +74,14 @@ export const Hero: React.FC = () => {
           transition={{ delay: 0.6 }}
           className="flex flex-wrap justify-center gap-6"
         >
-          <button className="btn-secondary flex items-center gap-2">
+          <a
+            href="./nitya_resume.pdf"
+            download="nitya_resume.pdf"
+            className="btn-secondary flex items-center gap-2"
+          >
             <Download size={18} />
             DOWNLOAD CV
-          </button>
+          </a>
         </motion.div>
       </div>
 

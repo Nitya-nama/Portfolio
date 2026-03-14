@@ -1,67 +1,104 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Cpu, Zap } from 'lucide-react';
+import { Zap } from 'lucide-react';
 
-const skills = [
-  { name: 'REACT', category: 'FRAMEWORK' },
-  { name: 'PYTHON', category: 'LANGUAGE' },
-  { name: 'TAILWIND', category: 'STYLING' },
-  { name: 'SQL', category: 'DATA' },
-  { name: 'HTML5', category: 'CORE' },
-  { name: 'GIT', category: 'VERSION' },
-  { name: 'MONGODB', category: 'QUERY' },
-  { name: 'GITHUB', category: 'OPS' },
-  { name: 'JAVA', category: 'LANGUAGE' },
-  { name: 'DJANGO', category: 'FRAMEWORK' },
-  { name: 'C++', category: 'LANGUAGE' },
+const categories = [
+  {
+    label: 'LANGUAGES',
+    color: 'var(--accent-1)',
+    skills: ['PYTHON', 'JAVA', 'C++', 'SQL', 'JAVASCRIPT', 'HTML/CSS'],
+  },
+  {
+    label: 'AI / ML',
+    color: 'var(--accent-2)',
+    skills: ['TENSORFLOW', 'PYTORCH', 'SCIKIT-LEARN', 'KERAS', 'BERT / NLP', 'ARIMA', 'LSTM', 'PANDAS', 'NUMPY'],
+  },
+  {
+    label: 'WEB & BACKEND',
+    color: 'var(--accent-3)',
+    skills: ['REACT', 'FLASK', 'DJANGO', 'REST APIs', 'JWT AUTH', 'NODE.JS', 'TAILWIND'],
+  },
+  {
+    label: 'DATA & CLOUD',
+    color: 'var(--accent-1)',
+    skills: ['MYSQL', 'POSTGRESQL', 'MONGODB', 'POWER BI', 'TABLEAU', 'LOOKER STUDIO', 'AWS', 'GCP', 'AZURE', 'VERCEL'],
+  },
+  {
+    label: 'TOOLS & OPS',
+    color: 'var(--accent-3)',
+    skills: ['GIT', 'GITHUB', 'JUPYTER', 'GOOGLE COLAB', 'CI/CD', 'MVC'],
+  },
 ];
 
-export const TechStack: React.FC = () => {
-  return (
-    <section id="skills" className="py-24 bg-black text-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-1 bg-accent-neon" />
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-accent-neon" />
-      
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <h2 className="text-5xl md:text-7xl font-bold mb-2">
-              TECH<span className="text-accent-neon">_STACK</span>
-            </h2>
-            <div className="h-1 w-full bg-white/20" />
-          </div>
-          <div className="flex items-center gap-2 text-accent-neon font-mono text-[10px] mb-2">
-            <Zap size={12} fill="currentColor" />
-            /// SYSTEM_OPTIMIZED
-          </div>
-        </div>
+export const TechStack: React.FC = () => (
+  <section id="skills" className="py-24 relative overflow-hidden"
+    style={{ background: 'var(--bg-dark, #0d0b14)', color: '#f0eeff' }}>
+    {/* top / bottom accent lines */}
+    <div className="absolute top-0 left-0 w-full h-0.5" style={{ background: 'var(--accent-1)' }} />
+    <div className="absolute bottom-0 left-0 w-full h-0.5" style={{ background: 'var(--accent-1)' }} />
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 border-t border-l border-white/20">
-          {skills.map((skill, i) => (
-            <motion.div 
-              key={skill.name}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: i * 0.05 }}
-              viewport={{ once: true }}
-              whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', scale: 1.05, zIndex: 10 }}
-              className="border-r border-b border-white/20 p-6 flex flex-col items-center justify-center text-center group cursor-crosshair transition-all"
-            >
-              <span className="text-[10px] font-mono opacity-40 mb-2 group-hover:text-accent-neon transition-colors">
-                {skill.category}
-              </span>
-              <span className="font-mono font-bold text-sm tracking-widest">
-                {skill.name}
-              </span>
-            </motion.div>
-          ))}
+    <div className="max-w-7xl mx-auto px-4 md:px-8">
+      {/* Header */}
+      <div className="flex justify-between items-end mb-12">
+        <div>
+          <h2 className="text-5xl md:text-7xl font-bold mb-2">
+            TECH<span style={{ color: 'var(--accent-1)' }}>_STACK</span>
+          </h2>
+          <div className="h-0.5 w-full" style={{ background: 'rgba(255,255,255,0.15)' }} />
         </div>
-
-        <div className="mt-12 flex justify-between items-center font-mono text-[10px] opacity-40">
-          <span>TOTAL_NODES: {skills.length}</span>
-          <span>MEMORY_USAGE: 128MB</span>
+        <div className="flex items-center gap-2 font-mono text-[10px] mb-2" style={{ color: 'var(--accent-1)' }}>
+          <Zap size={12} fill="currentColor" />
+          /// SYSTEM_OPTIMIZED
         </div>
       </div>
-    </section>
-  );
-};
+
+      {/* Skill categories */}
+      <div className="space-y-6">
+        {categories.map((cat, ci) => (
+          <div key={cat.label}>
+            {/* Category label */}
+            <div className="flex items-center gap-3 mb-3">
+              <span className="font-mono text-[10px] font-bold px-2 py-0.5"
+                style={{ background: cat.color, color: '#fff', letterSpacing: '0.08em' }}>
+                {cat.label}
+              </span>
+              <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
+            </div>
+
+            {/* Skill cells */}
+            <div className="grid border-t border-l"
+              style={{
+                borderColor: 'rgba(255,255,255,0.1)',
+                gridTemplateColumns: `repeat(auto-fill, minmax(130px, 1fr))`,
+              }}>
+              {cat.skills.map((skill, i) => (
+                <motion.div
+                  key={skill}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: (ci * cat.skills.length + i) * 0.025 }}
+                  viewport={{ once: true }}
+                  whileHover={{ backgroundColor: `color-mix(in srgb, ${cat.color} 12%, transparent)`, scale: 1.04, zIndex: 10 }}
+                  className="border-r border-b px-4 py-4 flex flex-col items-center justify-center text-center cursor-crosshair transition-all group"
+                  style={{ borderColor: 'rgba(255,255,255,0.08)' }}
+                >
+                  <span className="font-mono font-bold text-xs tracking-widest" style={{ color: '#f0eeff' }}>
+                    {skill}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Footer stats */}
+      <div className="mt-10 flex justify-between items-center font-mono text-[10px]"
+        style={{ color: 'rgba(255,255,255,0.25)' }}>
+        <span>TOTAL_NODES: {categories.reduce((a, c) => a + c.skills.length, 0)}</span>
+        <span>CATEGORIES: {categories.length}</span>
+        <span>MEMORY_USAGE: 256MB</span>
+      </div>
+    </div>
+  </section>
+);
