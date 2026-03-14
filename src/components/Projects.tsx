@@ -44,7 +44,7 @@ export const Projects: React.FC = () => {
 
         {/* Section header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-          <h2 className="text-6xl md:text-8xl font-bold" style={{ color: 'var(--text)' }}>
+          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold" style={{ color: 'var(--text)' }}>
             SELECTED<br />
             <span style={{ WebkitTextStroke: '2px var(--text)', color: 'transparent' }}>WORKS</span>
           </h2>
@@ -106,8 +106,8 @@ export const Projects: React.FC = () => {
               </a>
 
               {/* ── Card body ── */}
-              <div className="p-8 flex flex-col flex-1">
-                <h3 className="text-3xl font-bold mb-4" style={{ color: 'var(--text)' }}>
+              <div className="p-5 md:p-8 flex flex-col flex-1">
+                <h3 className="text-xl md:text-3xl font-bold mb-3 md:mb-4" style={{ color: 'var(--text)' }}>
                   {project.title}
                 </h3>
                 <p className="font-mono text-sm leading-relaxed mb-8 flex-1" style={{ color: 'var(--text-2)' }}>

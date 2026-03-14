@@ -45,7 +45,7 @@ export const Experience: React.FC = () => (
   <section id="logs" className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
     {/* Header */}
     <div className="text-center mb-20">
-      <h2 className="text-5xl md:text-8xl font-bold inline-block relative" style={{ color: 'var(--text)' }}>
+      <h2 className="text-4xl md:text-5xl lg:text-8xl font-bold inline-block relative" style={{ color: 'var(--text)' }}>
         EXPERIENCE<span style={{ color: 'var(--accent-2)' }}>_LOG</span>
         <div className="absolute -bottom-4 left-0 w-full h-2"
           style={{ background: 'color-mix(in srgb, var(--accent-2) 20%, transparent)' }} />
@@ -68,7 +68,7 @@ export const Experience: React.FC = () => (
               <div className="w-full h-full" style={{ background: exp.accentColor }} />
             </div>
 
-            <div className="w-full md:w-[45%] pl-12 md:pl-0">
+            <div className="w-full md:w-[45%] pl-10 md:pl-0">
               <motion.div
                 initial={{ x: i % 2 === 0 ? -50 : 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
@@ -78,7 +78,7 @@ export const Experience: React.FC = () => (
 
                 {/* Title + date */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-3 gap-2">
-                  <h3 className="text-xl font-bold" style={{ color: 'var(--text)' }}>{exp.title}</h3>
+                  <h3 className="text-base md:text-xl font-bold" style={{ color: 'var(--text)' }}>{exp.title}</h3>
                   <span className="px-3 py-1 font-mono text-[10px] whitespace-nowrap text-white flex-shrink-0"
                     style={{ background: 'color-mix(in srgb, var(--bg-dark, #0d0b14) 90%, transparent)' }}>
                     {exp.date}
@@ -86,7 +86,7 @@ export const Experience: React.FC = () => (
                 </div>
 
                 {/* Company + certificate button */}
-                <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 flex-wrap">
                   <p className="font-mono text-sm font-bold" style={{ color: exp.accentColor }}>
                     @ {exp.company}
                   </p>

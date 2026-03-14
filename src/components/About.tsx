@@ -63,7 +63,7 @@ export const About: React.FC = () => (
       style={{ background: 'var(--panel)', borderColor: 'var(--border)' }}>
 
       {/* Photo */}
-      <div className="relative w-full md:w-1/3 aspect-square flex-shrink-0">
+      <div className="relative w-full sm:w-2/3 md:w-1/3 mx-auto aspect-square flex-shrink-0">
         <div className="absolute inset-0 thick-border -rotate-3 translate-x-4 translate-y-4"
           style={{ background: 'color-mix(in srgb, var(--accent-1) 15%, transparent)', borderColor: 'var(--accent-1)' }} />
         <div className="relative w-full h-full thick-border overflow-hidden panel-shadow"
@@ -75,7 +75,7 @@ export const About: React.FC = () => (
       {/* Content */}
       <div className="w-full md:w-2/3">
         <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-4xl md:text-5xl font-bold" style={{ color: 'var(--text)' }}>WHO AM I?</h2>
+          <h2 className="text-3xl md:text-5xl font-bold" style={{ color: 'var(--text)' }}>WHO AM I?</h2>
           <div className="h-2 w-20 hidden md:block flex-shrink-0" style={{ background: 'var(--accent-1)' }} />
         </div>
 
@@ -116,7 +116,7 @@ export const About: React.FC = () => (
         </div>
 
         {/* Badges */}
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-3">
           <div className="thick-border px-4 py-2 flex items-center gap-2 font-mono text-xs"
             style={{ background: 'var(--panel-alt)', color: 'var(--text)', borderColor: 'var(--border)' }}>
             <MapPin size={13} className="text-red-500 flex-shrink-0" />

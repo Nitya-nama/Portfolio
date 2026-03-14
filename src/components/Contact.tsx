@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Mail, MapPin, Send, Star, CheckCircle, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 /* ─────────────────────────────────────────────────────
    EmailJS config — replace the three values below:
@@ -10,9 +11,9 @@ import { Mail, MapPin, Send, Star, CheckCircle, Loader2 } from 'lucide-react';
    4. Go to Account → copy your Public Key
    All three values go in the constants below.
 ───────────────────────────────────────────────────── */
-const EMAILJS_SERVICE_ID  = 'service_75lbudk';   // e.g. 'service_abc123'
-const EMAILJS_TEMPLATE_ID = 'template_djktq58';  // e.g. 'template_xyz789'
-const EMAILJS_PUBLIC_KEY  = 'OKmRnODBPs8GmYThR';   // e.g. 'aBcDeFgHiJkLmNoPq'
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xyz789'
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'aBcDeFgHiJkLmNoPq'
 
 // EmailJS template variables expected:
 // {{from_name}}  {{from_email}}  {{message}}  {{to_name}} = "Nitya"
@@ -94,7 +95,6 @@ export const Contact: React.FC = () => {
     setStatus('sending');
     try {
       // Dynamically import EmailJS so it doesn't bloat the bundle
-      const emailjs = await import('@emailjs/browser');
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
@@ -125,12 +125,12 @@ export const Contact: React.FC = () => {
           START A PROJECT
         </div>
 
-        <div className="thick-border p-8 md:p-16 panel-shadow flex flex-col lg:flex-row gap-16"
+        <div className="thick-border p-6 md:p-16 panel-shadow flex flex-col lg:flex-row gap-10 md:gap-16"
           style={{ background: 'var(--panel)', borderColor: 'var(--border)' }}>
 
           {/* Left */}
           <div className="w-full lg:w-1/2">
-            <h2 className="text-6xl md:text-8xl font-bold mb-8 leading-none" style={{ color: 'var(--text)' }}>
+            <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-none" style={{ color: 'var(--text)' }}>
               LET'S<br />TALK<br />
               <span style={{ background: 'var(--grad-text)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 CODE.

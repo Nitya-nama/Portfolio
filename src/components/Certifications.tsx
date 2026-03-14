@@ -42,8 +42,8 @@ const achievements = [
     icon: Trophy,
     label: 'National Hackathons',
     detail: 'Google · Microsoft · Pine Labs · SAWiT.AI · RIFT-26 · 2024–Present',
-    verifyUrl: null,
-    linkLabel: null,
+    verifyUrl: 'https://rift-2026-ai-hunters.vercel.app/',
+    linkLabel: 'VIEW PROJECT',
   },
   {
     icon: Users,
@@ -69,7 +69,7 @@ export const Certifications: React.FC = () => (
       {/* Header */}
       <motion.div initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }} className="mb-12">
-        <h2 className="text-4xl md:text-6xl font-bold mb-2" style={{ color: 'var(--text)' }}>
+        <h2 className="text-3xl md:text-6xl font-bold mb-2" style={{ color: 'var(--text)' }}>
           CREDENTIALS<span style={{ color: 'var(--accent-1)' }}>_LOG</span>
         </h2>
         <p className="font-mono text-sm" style={{ color: 'var(--text-2)' }}>

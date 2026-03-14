@@ -21,7 +21,7 @@ const categories = [
   {
     label: 'DATA & CLOUD',
     color: 'var(--accent-1)',
-    skills: ['MYSQL', 'ORACLESQL','POSTGRESQL', 'MONGODB', 'POWER BI', 'TABLEAU', 'LOOKER STUDIO', 'AWS', 'GCP', 'AZURE', 'VERCEL'],
+    skills: ['MYSQL', 'POSTGRESQL', 'MONGODB', 'POWER BI', 'TABLEAU', 'LOOKER STUDIO', 'AWS', 'GCP', 'AZURE', 'VERCEL'],
   },
   {
     label: 'TOOLS & OPS',
@@ -39,9 +39,9 @@ export const TechStack: React.FC = () => (
 
     <div className="max-w-7xl mx-auto px-4 md:px-8">
       {/* Header */}
-      <div className="flex justify-between items-end mb-12">
+      <div className="flex flex-wrap justify-between items-end mb-12 gap-4">
         <div>
-          <h2 className="text-5xl md:text-7xl font-bold mb-2">
+          <h2 className="text-4xl md:text-7xl font-bold mb-2">
             TECH<span style={{ color: 'var(--accent-1)' }}>_STACK</span>
           </h2>
           <div className="h-0.5 w-full" style={{ background: 'rgba(255,255,255,0.15)' }} />
@@ -69,7 +69,7 @@ export const TechStack: React.FC = () => (
             <div className="grid border-t border-l"
               style={{
                 borderColor: 'rgba(255,255,255,0.1)',
-                gridTemplateColumns: `repeat(auto-fill, minmax(130px, 1fr))`,
+                gridTemplateColumns: `repeat(auto-fill, minmax(100px, 1fr))`,
               }}>
               {cat.skills.map((skill, i) => (
                 <motion.div
