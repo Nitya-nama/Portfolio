@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=180&section=header&text=Nitya%20Nama%20%E2%80%94%20Portfolio&fontSize=38&fontColor=ffffff&fontAlignY=40&desc=AI%20Engineer%20%7C%20Full%20Stack%20Developer&descAlignY=62&descSize=16&descColor=e9d5ff" width="100%"/>
-
 [![Live](https://img.shields.io/badge/🌐%20Live%20Site-6E3BFF?style=for-the-badge)](https://nitya-nama.github.io/Portfolio/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
@@ -128,7 +126,5 @@ Deployed via **GitHub Pages**. Live at [nitya-nama.github.io/Portfolio](https://
 <div align="center">
 
 *Designed & built by Nitya Nama 💜*
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=100&section=footer" width="100%"/>
 
 </div>
