@@ -3,8 +3,8 @@ import { motion } from 'motion/react';
 import { MapPin, CheckCircle } from 'lucide-react';
 import profilePhoto from '../assets/PassportPhoto.jpeg';
 
-const useCountUp = (target: number, duration = 1600, start = false) => {
-  const [value, setValue] = useState(0);
+const useCountUp = (target: number, duration = 1600, start = false, decimals = 0) => {
+  const [value, setValue] = useState('0');
   useEffect(() => {
     if (!start) return;
     let startTime: number | null = null;
@@ -12,20 +12,21 @@ const useCountUp = (target: number, duration = 1600, start = false) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const ease = 1 - Math.pow(1 - progress, 3);
-      setValue(Math.floor(ease * target));
+      const raw = ease * target;
+      setValue(decimals > 0 ? raw.toFixed(decimals) : Math.floor(raw).toString());
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
-  }, [start, target, duration]);
+  }, [start, target, duration, decimals]);
   return value;
 };
 
-interface StatProps { value: number; suffix: string; label: string; sublabel: string; delay: number; }
+interface StatProps { value: number; suffix: string; label: string; sublabel: string; delay: number; decimals?: number; }
 
-const StatCard: React.FC<StatProps> = ({ value, suffix, label, sublabel, delay }) => {
+const StatCard: React.FC<StatProps> = ({ value, suffix, label, sublabel, delay, decimals = 0 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const count = useCountUp(value, 1600, visible);
+  const count = useCountUp(value, 1600, visible, decimals);
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.3 });
     if (ref.current) obs.observe(ref.current);
@@ -49,10 +50,10 @@ const StatCard: React.FC<StatProps> = ({ value, suffix, label, sublabel, delay }
 };
 
 const stats: StatProps[] = [
-  { value: 93,  suffix: '/10', label: 'CGPA',               sublabel: 'Top 5% · RR Institute', delay: 0 },
-  { value: 92,  suffix: '%',   label: 'Best Model Accuracy', sublabel: 'BERT Emotion Detection', delay: 0.1 },
+  { value: 9.3, suffix: '/10', label: 'CGPA',               sublabel: 'Top 5% · RR Institute',     delay: 0,   decimals: 1 },
+  { value: 92,  suffix: '%',   label: 'Best Model Accuracy', sublabel: 'BERT Emotion Detection',    delay: 0.1 },
   { value: 20,  suffix: 'K+',  label: 'Records Processed',  sublabel: 'ML pipeline · Happy Inbox', delay: 0.2 },
-  { value: 3,   suffix: '+',   label: 'Live Deployments',    sublabel: 'Production · Vercel', delay: 0.3 },
+  { value: 3,   suffix: '+',   label: 'Live Deployments',    sublabel: 'Production · Vercel',       delay: 0.3 },
 ];
 
 export const About: React.FC = () => (

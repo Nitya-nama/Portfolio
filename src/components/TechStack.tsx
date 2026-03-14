@@ -21,7 +21,7 @@ const categories = [
   {
     label: 'DATA & CLOUD',
     color: 'var(--accent-1)',
-    skills: ['MYSQL', 'POSTGRESQL', 'MONGODB', 'POWER BI', 'TABLEAU', 'LOOKER STUDIO', 'AWS', 'GCP', 'AZURE', 'VERCEL'],
+    skills: ['MYSQL', 'ORACLESQL','POSTGRESQL', 'MONGODB', 'POWER BI', 'TABLEAU', 'LOOKER STUDIO', 'AWS', 'GCP', 'AZURE', 'VERCEL'],
   },
   {
     label: 'TOOLS & OPS',
