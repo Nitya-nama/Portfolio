@@ -11,9 +11,9 @@ import emailjs from '@emailjs/browser';
    4. Go to Account → copy your Public Key
    All three values go in the constants below.
 ───────────────────────────────────────────────────── */
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xyz789'
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'aBcDeFgHiJkLmNoPq'
+const EMAILJS_SERVICE_ID  = 'service_75lbudk';   // e.g. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'template_djktq58';  // e.g. 'template_xyz789'
+const EMAILJS_PUBLIC_KEY  = 'OKmRnODBPs8GmYThR';   // e.g. 'aBcDeFgHiJkLmNoPq'
 
 // EmailJS template variables expected:
 // {{from_name}}  {{from_email}}  {{message}}  {{to_name}} = "Nitya"
