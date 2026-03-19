@@ -17,7 +17,7 @@ const projects = [
     tags: ['React', 'Node.js', 'REST APIs', 'JWT Auth', 'Context API/Redux', 'MySQL'],
     image: 'https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/c7cd9884349537.5d5a84abd818a.jpg',
     github: 'https://github.com/Nitya-nama/Cinerent_ERP',
-    live: null,
+    live: 'https://cinerent-erp.vercel.app/',
   },
   {
     title: 'EMOTION DETECTION AI',
