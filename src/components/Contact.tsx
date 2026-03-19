@@ -221,7 +221,7 @@ export const Contact: React.FC = () => {
                 </button>
 
                 {/* EmailJS setup reminder — remove after configuring */}
-                {EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID' && (
+                {EMAILJS_SERVICE_ID === 'service_75lbudk' && (
                   <p className="font-mono text-[10px] text-center" style={{ color: 'var(--text-3)' }}>
                     ⚠ Configure EmailJS keys in Contact.tsx to activate form submission
                   </p>
