@@ -8,7 +8,8 @@ const PROJECTS = [
   { icon:"🎬", title:"CineRent ERP", desc:"Scalable full-stack ERP system with JWT-based multi-role auth managing 1,000+ records across billing, inventory, and rental modules. 35% workflow efficiency improvement via modularised React + Redux.", tags:["React","Node.js","JWT Auth","Redux","MySQL","REST APIs"], github:"https://github.com/Nitya-nama/Cinerent_ERP", live:"https://cinerent-erp.vercel.app/" },
   { icon:"🧠", title:"Emotion Detection AI", desc:"Transformer-based NLP emotion classifier using Hugging Face BERT achieving 92% accuracy. Optimised inference pipeline reduced API latency to under 250ms with Flask backend caching.", tags:["Flask","BERT","Hugging Face","NLP","Python","REST APIs"], github:"https://github.com/Nitya-nama/Emotion-detection", live:null },
   { icon:"📈", title:"EcoVision", desc:"AI-enhanced economic forecasting web app. ARIMA + LSTM models achieve 88% accuracy. Flask REST API with interactive JS dashboard cuts prediction time by 40% via feature engineering.", tags:["Python","Flask","ARIMA","LSTM","Scikit-learn","JavaScript"], github:"https://github.com/Nitya-nama/ECOVISION", live:"https://ecovision-frontend-gold.vercel.app/" },
-  { icon:"⚙️", title:"ML Pipeline Toolkit", desc:"Reusable supervised ML pipeline framework with feature engineering, model training, evaluation loops, and automated experiment logging. Used across multiple production ML deployments.", tags:["Python","Scikit-learn","Pandas","NumPy","CI/CD"], github:"https://github.com/Nitya-nama", live:null },
+  { icon:"🍽️",title:"SMARTBITE AI",desc:"An AI-powered voice-based food ordering platform that enables users to place orders using natural voice commands. Built with Django, MySQL, AI speech-to-text processing, secure authentication, real-time cart management, and Razorpay payment integration.",tags:["Python","Django","AI","MySQL","Razorpay"],github:"https://github.com/Nitya-nama/SMARTBITE_AI",live:null},
+  { icon:"🏠",title:"Real Estate Pool",desc:"A collaborative real estate platform that connects buyers, sellers, and investors through a centralized property marketplace. Features property listings, search and filtering, user management, and streamlined property discovery with a modern web interface.",tags:["Python","Django","MySQL","HTML/CSS","JavaScript"],github:"https://github.com/HackHunters2025/Real_Estate_Pool",live:null},
 ];
 
 const SKILLS = [
@@ -323,7 +324,7 @@ export default function App() {
           fontFamily:sans, fontWeight:700,
           fontSize: mob ? "clamp(42px,12vw,64px)" : "clamp(52px,8vw,96px)",
           letterSpacing:"-0.04em", lineHeight:1.0, marginBottom:20,
-          background:"linear-gradient(135deg,#a5b4fc 0%,#818cf8 40%,#6366f1 70%,#7c3aed 100%)",
+          background:"linear-gradient(135deg,#00e5ff 0%, #00bfff 35%, #4f8cff 65%, #9b5cff 100%)",
           WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text",
         }}>
           Nitya Nama
@@ -332,15 +333,16 @@ export default function App() {
         <p style={{ fontFamily:mono, fontSize:13, color:c.dim, marginBottom:14, letterSpacing:"0.04em" }}>@nitya_nama</p>
 
         <p style={{ fontFamily:mono, fontSize: mob?"13px":"clamp(13px,1.3vw,16px)", color:c.sub, maxWidth:560, lineHeight:1.9, marginBottom:40 }}>
-          AI Engineer | Data Scientist | Machine Learning Engineer —{" "}
-          Building production AI systems using Python, Machine Learning, NLP, Cloud, and Data Engineering. {" "}
-          Transforming ML pipelines to production Flask APIs{" "}
-          and React frontends. Turning research into products.
+          AI Engineer | Data Scientist | Machine Learning Engineer
+          Building intelligent systems with Machine Learning, Data Science, 
+          and Full-Stack Development. From data pipelines and predictive models 
+          to Flask APIs and React applications, transform ideas into scalable, 
+          production-ready products.
         </p>
 
         <div style={{ display:"flex", gap:12, justifyContent:"center", flexWrap:"wrap", marginBottom:36 }}>
           <button onClick={() => goTo("#projects")}
-            style={{ fontFamily:sans, fontSize:14, fontWeight:600, color:"#fff", background:"linear-gradient(135deg,#6366f1,#7c3aed)", border:"none", padding: mob?"11px 24px":"12px 32px", borderRadius:6, cursor:"pointer", transition:"opacity 0.15s" }}
+            style={{ fontFamily:sans, fontSize:14, fontWeight:600, color:"#fff", background:"linear-gradient(135deg,#06b6d4,#0891b2)", border:"none", padding: mob?"11px 24px":"12px 32px", borderRadius:6, cursor:"pointer", transition:"opacity 0.15s" }}
             onMouseEnter={e => e.currentTarget.style.opacity="0.85"}
             onMouseLeave={e => e.currentTarget.style.opacity="1"}>
             View Projects
@@ -351,22 +353,6 @@ export default function App() {
             onMouseLeave={e => { e.currentTarget.style.borderColor=c.border; e.currentTarget.style.color=c.sub; }}>
             Get in Touch
           </button>
-        </div>
-
-        <div style={{ display:"flex", gap:20, justifyContent:"center", flexWrap:"wrap" }}>
-          {[{l:"github.com/Nitya-nama",h:"https://github.com/Nitya-nama"},{l:"linkedin.com/in/nitya-nama",h:"https://www.linkedin.com/in/nitya-nama/"}].map(s => (
-            <a key={s.l} href={s.h} target="_blank" rel="noopener noreferrer"
-              style={{ fontFamily:mono, fontSize:11, color:c.dimmer, textDecoration:"none", transition:"color 0.15s" }}
-              onMouseEnter={e => e.currentTarget.style.color=c.acc}
-              onMouseLeave={e => e.currentTarget.style.color=c.dimmer}>
-              {s.l}
-            </a>
-          ))}
-        </div>
-
-        <div style={{ position:"absolute", bottom:32, left:"50%", transform:"translateX(-50%)", display:"flex", flexDirection:"column", alignItems:"center", gap:6, animation:"bobble 2.2s ease infinite" }}>
-          <span style={{ fontFamily:mono, fontSize:10, color:c.dimmer, letterSpacing:"0.12em" }}>scroll</span>
-          <div style={{ width:1, height:28, background:`linear-gradient(to bottom,${c.acc},transparent)` }} />
         </div>
       </section>
 
@@ -668,7 +654,7 @@ export default function App() {
               nityanama101@gmail.com
             </a>
             <div style={{ display:"flex", gap:16, justifyContent:"center", flexWrap:"wrap" }}>
-              {[{l:"GitHub",h:"https://github.com/Nitya-nama"},{l:"LinkedIn",h:"https://www.linkedin.com/in/nitya-nama/"}].map(s => (
+              {[{l:"GitHub",h:"https://github.com/Nitya-nama"},{l:"LinkedIn",h:"https://www.linkedin.com/in/nitya-nama/"},{l:"X",h:"https://x.com/nitya_nama"}].map(s => (
                 <a key={s.l} href={s.h} target="_blank" rel="noopener noreferrer"
                   style={{ fontFamily:sans, fontSize:14, color:c.sub, textDecoration:"none", border:`1px solid ${c.border}`, padding:"10px 28px", borderRadius:6, transition:"color 0.15s,border-color 0.15s,background 0.15s" }}
                   onMouseEnter={e => { e.currentTarget.style.color=c.acc; e.currentTarget.style.borderColor=c.borderH; e.currentTarget.style.background=c.accD; }}
@@ -686,7 +672,7 @@ export default function App() {
         <div style={{ maxWidth:1100, margin:"0 auto", padding:`0 ${px}`, display:"flex", flexDirection: mob?"column":"row", gap: mob?8:0, justifyContent:"space-between", alignItems:"center", textAlign: mob?"center":"left" }}>
           <span style={{ fontFamily:mono, fontSize:11, color:c.dim }}>© 2026 Nitya Nama. All rights reserved.</span>
           <div style={{ display:"flex", gap:20 }}>
-            {[{l:"GitHub",h:"https://github.com/Nitya-nama"},{l:"LinkedIn",h:"https://www.linkedin.com/in/nitya-nama/"}].map(s => (
+            {[{l:"GitHub",h:"https://github.com/Nitya-nama"},{l:"LinkedIn",h:"https://www.linkedin.com/in/nitya-nama/"},{l:"X",h:"https://x.com/nitya_nama"}].map(s => (
               <a key={s.l} href={s.h} target="_blank" rel="noopener noreferrer"
                 style={{ fontFamily:mono, fontSize:11, color:c.dim, textDecoration:"none", transition:"color 0.15s" }}
                 onMouseEnter={e => e.currentTarget.style.color=c.acc}

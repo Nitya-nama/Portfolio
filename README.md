@@ -1,130 +1,96 @@
-<div align="center">
+# 🚀 Nitya Nama Portfolio
 
-[![Live](https://img.shields.io/badge/🌐%20Live%20Site-6E3BFF?style=for-the-badge)](https://nitya-nama.github.io/Portfolio/)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
-[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
-[![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)](https://threejs.org)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+A modern and responsive portfolio showcasing my work in **Artificial Intelligence, Data Science, Machine Learning, and Full-Stack Development**.
 
-</div>
+🌐 **Live Website:** https://nitya-nama.github.io/Portfolio/
 
 ---
 
-## ✨ Overview
+## ✨ Highlights
 
-Personal portfolio built with **React + Vite + Three.js**, featuring a dual light/dark theme system — Apple-inspired clean whites in light mode and a neon purple/magenta aesthetic in dark mode.
-
----
-
-## 🖥️ Preview
-
-| Light Mode | Dark Mode |
-|:---:|:---:|
-| Clean Apple-style whites | Neon violet/magenta glow |
-| `#ffffff` · `#f5f5f7` · `#1d1d1f` | `#0d0b14` · `#6e3bff` · `#ff2d9b` |
+- Modern responsive design
+- Dark / Light mode
+- Interactive project showcase
+- Skills & experience timeline
+- Technical blog section
+- GitHub, LinkedIn & X integration
+- Mobile-friendly UI
 
 ---
 
-## 🗂️ Sections
+## 🛠 Tech Stack
 
-| Section | Description |
-|---------|-------------|
-| **Hero** | Animated Three.js wireframe sphere + typewriter status |
-| **About** | Bio, count-up stats (CGPA, accuracy, records, deployments) |
-| **Tech Stack** | 34 skills across 5 categorised rows |
-| **Certifications** | 4 verified certs + achievements with live links |
-| **Experience** | Timeline with internship certificate links |
-| **Projects** | 4 projects with GitHub + live demo buttons |
-| **Contact** | Functional EmailJS form |
+### Frontend
+- React
+- Vite
+- JavaScript
+- HTML5
+- CSS3
+
+### Backend
+- Flask
+- Django
+- REST APIs
+
+### AI & Data Science
+- Python
+- Scikit-learn
+- TensorFlow
+- Pandas
+- NumPy
+
+### Database
+- MySQL
+- PostgreSQL
 
 ---
 
-## 🛠️ Built With
+## 📂 Featured Projects
 
-<p align="left">
-<img src="https://skillicons.dev/icons?i=react" height="40"/>
-<img src="https://skillicons.dev/icons?i=vite" height="40"/>
-<img src="https://skillicons.dev/icons?i=ts" height="40"/>
-<img src="https://skillicons.dev/icons?i=tailwind" height="40"/>
-<img src="https://skillicons.dev/icons?i=threejs" height="40"/>
-</p>
+### 🧬 PharmaGuard
+AI-powered pharmacogenomic risk prediction platform using genomic data and explainable AI.
 
-- **Framer Motion** — page animations and scroll reveals
-- **@react-three/fiber + drei** — 3D animated sphere
-- **EmailJS** — contact form without a backend
-- **Lucide React** — icons
+### 🍽️ SMARTBITE AI
+Voice-based food ordering system with AI speech recognition, authentication, cart management, and Razorpay integration.
+
+### 🎬 CineRent ERP
+Full-stack ERP platform for inventory, billing, rentals, and user management.
+
+### 🏠 Real Estate Pool
+Property marketplace platform for buyers, sellers, and investors.
+
+### 📈 EcoVision
+Economic forecasting platform using ARIMA and LSTM models.
 
 ---
 
 ## 🚀 Run Locally
 
 ```bash
-# Clone the repo
 git clone https://github.com/Nitya-nama/Portfolio.git
+
 cd Portfolio
 
-# Install dependencies
 npm install
 
-# Start dev server
 npm run dev
 ```
 
-> Runs on `http://localhost:5173`
-
----
-
-## 📁 Project Structure
-
-```
-src/
-├── components/
-│   ├── Navbar.tsx
-│   ├── Hero.tsx
-│   ├── About.tsx
-│   ├── TechStack.tsx
-│   ├── Certifications.tsx
-│   ├── Experience.tsx
-│   ├── Projects.tsx
-│   └── Contact.tsx
-├── assets/
-│   └── PassportPhoto.jpeg
-├── ThemeProvider.tsx
-├── App.tsx
-└── index.css
-public/
-└── Nitya_Nama_CV.pdf
-```
-
----
-
-## ⚙️ Configuration
-
-**Contact form** — add your EmailJS keys in `Contact.tsx`:
-```ts
-const EMAILJS_SERVICE_ID  = 'your_service_id';
-const EMAILJS_TEMPLATE_ID = 'your_template_id';
-const EMAILJS_PUBLIC_KEY  = 'your_public_key';
-```
-
-**CV download** — place your CV at `public/Nitya_Nama_CV.pdf`
-
-**Profile photo** — place your photo at `src/assets/PassportPhoto.jpeg`
-
----
-
-## 🌐 Deploy
+Build:
 
 ```bash
-npm run build   # builds to /dist
+npm run build
 ```
-
-Deployed via **GitHub Pages**. Live at [nitya-nama.github.io/Portfolio](https://nitya-nama.github.io/Portfolio/)
 
 ---
 
-<div align="center">
+## 📫 Connect With Me
 
-*Designed & built by Nitya Nama 💜*
+- GitHub: https://github.com/Nitya-nama
+- LinkedIn: https://www.linkedin.com/in/nitya-nama/
+- X: https://x.com/nitya_nama
+- Email: nityanama101@gmail.com
 
-</div>
+---
+
+⭐ If you like this project, consider starring the repository.
