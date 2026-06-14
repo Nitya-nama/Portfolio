@@ -87,7 +87,7 @@ const BLOG = [
     desc: "Understanding Retrieval-Augmented Generation, vector databases, embeddings, and modern AI system design.",
     date: "Apr 2026",
     read: "9 min read",
-    url: "/blog/why-ai-engineers-should-understand-rag"
+    url: "https://medium.com/@nityanama101/why-every-ai-engineer-should-understand-rag-52b8ff9a56fd"
   },
 
   {
@@ -96,7 +96,7 @@ const BLOG = [
     desc: "Real-world SQL concepts that helped me write faster, cleaner, and more efficient analytical queries.",
     date: "Mar 2026",
     read: "6 min read",
-    url: "/blog/sql-techniques-for-data-analysis"
+    url: "https://medium.com/@nityanama101/5-sql-techniques-that-instantly-improved-my-data-analysis-skills-90eb8ede6155"
   },
 ];
 
