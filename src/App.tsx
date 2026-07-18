@@ -5,43 +5,43 @@ const NAV = ["About","Projects","Skills","Experience","Articles","Contact"];
 const NAV_HREF = { About:"about", Projects:"projects", Skills:"skills", Experience:"experience", Articles:"blog", Contact:"contact" };
 
 const PROJECTS = [
-  { icon:"🧬", title:"PharmaGuard", desc:"Problem: clinicians lack a fast way to flag patient-specific drug safety risks from raw genetic data. Solution: an ML-driven pharmacogenomic risk prediction platform that parses patient .VCF genomic datasets and applies CPIC-aligned guideline logic to generate explainable, clinician-readable drug safety recommendations. Key features: automated VCF parsing, rule-based + ML risk scoring, explainable-AI output. Tech stack: Python, Flask, React (Vite). Deployment: Vercel + Flask API.", tags:["Python","Machine Learning","Flask","React (Vite)","CPIC Guidelines","VCF Genomics","Explainable AI","Vercel"], github:"https://github.com/Chandan-N-2004/RIFT2026_AI_HUNTERS", live:"https://rift-2026-ai-hunters.vercel.app/" },
-  { icon:"🎬", title:"CineRent ERP", desc:"Problem: a media rental business needed a single system to manage billing, inventory and rentals with role-based access. Solution: a full-stack ERP with JWT-based multi-role authentication managing 1,000+ records across billing, inventory and rental modules, cutting manual workflow time by 35% through a modularised React + Redux architecture. Tech stack: React, Node.js, Redux, MySQL, REST APIs. Deployment: Vercel.", tags:["React","Node.js","SQL","Redux","JWT Auth","REST APIs","Data Modelling"], github:"https://github.com/Nitya-nama/Cinerent_ERP", live:"https://cinerent-erp.vercel.app/" },
-  { icon:"🧠", title:"Emotion Detection AI", desc:"Problem: customer support tools need to understand emotional tone in text at scale. Solution: a transformer-based NLP emotion classification model fine-tuned on Hugging Face BERT, achieving 92% classification accuracy, with an optimised inference pipeline that cut API latency to under 250ms via Flask backend caching. Dataset: labelled text-emotion corpus. Tech stack: Python, Flask, Hugging Face Transformers, BERT, NLP, REST APIs.", tags:["Python","NLP","Deep Learning","BERT","Hugging Face","Flask","REST APIs"], github:"https://github.com/Nitya-nama/Emotion-detection", live:null },
-  { icon:"📈", title:"EcoVision", desc:"Problem: forecasting economic indicators manually is slow and error-prone. Solution: an AI-enhanced time-series forecasting application combining ARIMA and LSTM deep learning models to reach 88% forecast accuracy, exposed via a Flask REST API with an interactive dashboard, cutting prediction turnaround by 40% through targeted feature engineering. Tech stack: Python, Flask, ARIMA, LSTM, Scikit-learn, JavaScript. Deployment: Vercel + Flask API.", tags:["Python","Time-Series Forecasting","ARIMA","LSTM","Deep Learning","Scikit-learn","Flask","Data Visualisation"], github:"https://github.com/Nitya-nama/ECOVISION", live:"https://ecovision-frontend-gold.vercel.app/" },
-  { icon:"🍽️",title:"SMARTBITE AI",desc:"Problem: ordering food hands-free needed reliable natural-language voice understanding. Solution: an AI-powered voice-based food ordering platform using speech-to-text processing to interpret natural voice commands, with secure authentication, real-time cart management and Razorpay payment integration. Tech stack: Python, Django, MySQL, AI speech-to-text, Razorpay API.",tags:["Python","Django","AI","NLP","MySQL","REST APIs","Razorpay"],github:"https://github.com/Nitya-nama/SMARTBITE_AI",live:null},
-  { icon:"🏠",title:"Real Estate Pool",desc:"Problem: buyers, sellers and investors lacked one centralised place to discover and manage property listings. Solution: a collaborative real estate marketplace with property listings, advanced search and filtering, and user management, streamlining property discovery through a clean, modern interface. Tech stack: Python, Django, MySQL, HTML/CSS, JavaScript.",tags:["Python","Django","SQL","Data Analysis","HTML/CSS","JavaScript"],github:"https://github.com/HackHunters2025/Real_Estate_Pool",live:null},
+  { icon:"📈", title:"EcoVision", problem:"Forecasting economic indicators manually was slow and inconsistent.", solution:"Built an AI-powered economic forecasting app combining ARIMA and LSTM deep learning models, served via a Flask REST API with an interactive dashboard.", stack:["Python","Flask","ARIMA","LSTM","Scikit-learn","JavaScript"], metrics:["88% forecast accuracy","40% faster predictions"], github:"https://github.com/Nitya-nama/ECOVISION", live:"https://ecovision-frontend-gold.vercel.app/", article:null },
+  { icon:"🧬", title:"PharmaGuard", problem:"Clinicians lack a fast way to flag patient-specific drug safety risks from raw genetic data.", solution:"Built an ML-driven pharmacogenomic risk prediction platform that parses patient .VCF genomic datasets and applies CPIC-aligned guideline logic to generate explainable, clinician-readable drug safety recommendations.", stack:["Python","Flask","React (Vite)","CPIC Guidelines","VCF Genomics"], metrics:["Explainable AI output","CPIC-aligned scoring"], github:"https://github.com/Chandan-N-2004/RIFT2026_AI_HUNTERS", live:"https://rift-2026-ai-hunters.vercel.app/", article:null },
+  { icon:"🍽️", title:"SMARTBITE AI", problem:"Ordering food hands-free needed reliable natural-language voice understanding.", solution:"Built an AI-powered voice-based food ordering platform using speech-to-text processing to interpret natural voice commands, with secure authentication and real-time cart management.", stack:["Python","Django","AI","MySQL","Razorpay"], metrics:["Voice-to-order pipeline","Real-time cart sync"], github:"https://github.com/Nitya-nama/SMARTBITE_AI", live:null, article:null },
+  { icon:"🎬", title:"CineRent ERP", problem:"A media rental business needed one system to manage billing, inventory and rentals with role-based access.", solution:"Built a full-stack ERP with JWT-based multi-role authentication managing 1,000+ records across billing, inventory and rental modules through a modularised React + Redux architecture.", stack:["React","Node.js","Redux","MySQL","REST APIs"], metrics:["1,000+ records managed","35% faster workflows"], github:"https://github.com/Nitya-nama/Cinerent_ERP", live:"https://cinerent-erp.vercel.app/", article:"https://medium.com/@nityanama101/how-i-built-a-production-ready-erp-system-with-react-flask-b4ee7bc1d407" },
 ];
 
 const SKILLS = [
-  { cat: "Programming", icon: "💻", items: [["Python", 92], ["SQL", 88], ["Java", 78], ["JavaScript", 82]] },
-  { cat: "Machine Learning", icon: "🧠", items: [["Scikit-Learn", 90], ["TensorFlow", 84], ["PyTorch", 80], ["XGBoost", 82]] },
-  { cat: "Data Analytics", icon: "📊", items: [["Power BI", 85], ["Pandas", 92], ["NumPy", 90], ["Excel", 88]] },
-  { cat: "Visualization", icon: "📈", items: [["Power BI", 85], ["Matplotlib", 86], ["Plotly", 80], ["Seaborn", 82]] },
-  { cat: "Backend", icon: "🌐", items: [["Flask", 85], ["FastAPI", 78], ["REST APIs", 88]] },
-  { cat: "Databases", icon: "🗄️", items: [["PostgreSQL", 82], ["MySQL", 86], ["MongoDB", 76]] },
-  { cat: "Tools", icon: "🛠️", items: [["Git", 90], ["GitHub", 90], ["Docker", 74], ["Linux", 78]] },
-  { cat: "Cloud", icon: "☁️", items: [["Azure (Learning)", 55]] },
+  { cat: "Programming", icon: "💻", items: [["Python", "Expert"], ["SQL", "Advanced"], ["Java", "Intermediate"], ["JavaScript", "Advanced"]] },
+  { cat: "Machine Learning", icon: "🧠", items: [["Scikit-Learn", "Expert"], ["TensorFlow", "Advanced"], ["PyTorch", "Advanced"], ["XGBoost", "Advanced"]] },
+  { cat: "Data Analytics", icon: "📊", items: [["Power BI", "Advanced"], ["Pandas", "Expert"], ["NumPy", "Expert"], ["Excel", "Advanced"]] },
+  { cat: "Visualization", icon: "📈", items: [["Power BI", "Advanced"], ["Matplotlib", "Advanced"], ["Plotly", "Intermediate"], ["Seaborn", "Advanced"]] },
+  { cat: "Backend", icon: "🌐", items: [["Flask", "Advanced"], ["FastAPI", "Intermediate"], ["REST APIs", "Advanced"]] },
+  { cat: "Databases", icon: "🗄️", items: [["PostgreSQL", "Intermediate"], ["MySQL", "Advanced"], ["MongoDB", "Intermediate"]] },
+  { cat: "Tools", icon: "🛠️", items: [["Git", "Expert"], ["GitHub", "Expert"], ["Docker", "Intermediate"], ["Linux", "Intermediate"]] },
+  { cat: "Cloud", icon: "☁️", items: [["Azure", "Learning"]] },
 ];
 
 const EXP = [
   { period:"Jan — May 2026", role:"Data Science Intern", co:"QSpiders (A UNIT OF TEST YANTRA SOFTWARE SOLUTIONS LTD.), Bengaluru",
-    bullets:["Performed exploratory data analysis (EDA) and data cleaning on structured datasets to surface trends and prepare data for modelling.","Built and evaluated machine learning models in Python using Scikit-learn, applying feature engineering to improve model performance.","Created data visualisations to communicate model evaluation results and analytical findings to technical and non-technical stakeholders."],
+    bullets:["Conducted exploratory data analysis and data cleaning across structured datasets, identifying patterns that improved downstream model performance.","Built and evaluated machine learning models in Python using Scikit-learn, engineering features that measurably improved model performance.","Designed data visualisations to communicate model evaluation results and analytical findings to technical and non-technical stakeholders."],
     tags:["Python","EDA","Data Cleaning","Machine Learning","Feature Engineering","Scikit-Learn","Data Visualisation","Model Evaluation"], cert:"https://github.com/Nitya-nama/Certificates/blob/main/PYSPIDERS.pdf" },
   { period:"Feb – Mar 2025", role:"AI/ML Intern", co:"Happy Inbox",
-    bullets:["Engineered supervised machine learning models on 20,000+ user interaction logs using Scikit-learn, achieving a 65% improvement in recommendation accuracy.","Built automated data preprocessing and feature engineering pipelines with Pandas and NumPy, reducing model training time by 40%.","Ran reproducible experiments for model evaluation and performance optimisation, documenting results for team review."],
+    bullets:["Engineered supervised machine learning models on 20,000+ user interaction logs using Scikit-learn, improving recommendation accuracy by 65%.","Automated data preprocessing and feature engineering pipelines with Pandas and NumPy, reducing model training time by 40%.","Optimised model performance through reproducible experiments, documenting results for team review."],
     tags:["Python","Machine Learning","Scikit-learn","Pandas","NumPy","Feature Engineering"], cert:"https://github.com/Nitya-nama/Certificates/blob/main/happyinbox.png" },
   { period:"Mar – Apr 2025", role:"Data Analyst Associate", co:"Excelerate",
-    bullets:["Built interactive data dashboards in Power BI and Looker Studio, improving reporting visibility by 35% for business stakeholders.","Wrote and optimised complex SQL queries and normalised data models in MySQL, reducing report generation time by 40%.","Applied statistical trend analysis across departments to support data-driven stakeholder decision-making."],
+    bullets:["Designed interactive Power BI and Looker Studio dashboards, enabling stakeholders to monitor KPIs and improving reporting visibility by 35%.","Optimised complex SQL queries and normalised data models in MySQL, reducing report generation time by 40%.","Developed statistical trend analysis across departments to support data-driven stakeholder decision-making."],
     tags:["Power BI","SQL","Data Analysis","MySQL","Looker Studio","Business Intelligence"], cert:"https://github.com/Nitya-nama/Certificates/blob/main/Excelerate.png" },
 ];
 
 const ROLES = ["Aspiring Data Scientist","Machine Learning Engineer","Data Analyst","Business Intelligence Analyst","AI Engineer"];
 
 const CERTS = [
-  { title:"Microsoft Power BI Professional Certificate", issuer:"Microsoft", status:"In Progress" },
-  { title:"Placeholder — Future Certification", issuer:"—", status:"Planned" },
-  { title:"Placeholder — Future Certification", issuer:"—", status:"Planned" },
+  { title:"AI/ML Engineering Professional", issuer:"Microsoft", date:"Dec 2025", status:"Completed", url:"https://github.com/Nitya-nama/Certificates/blob/main/MICROSOFT_AI_ML.jpeg" },
+  { title:"Machine Learning Specialization", issuer:"Stanford · Coursera", date:"Jul 2025", status:"Completed", url:"https://github.com/Nitya-nama/Certificates/blob/main/STANFORD_ML.jpeg" },
+  { title:"Generative AI", issuer:"Google Cloud", date:"Feb 2025", status:"Completed", url:"https://github.com/Nitya-nama/Certificates/blob/main/GOOGLEGENAI.png" },
+  { title:"Python for Data Science", issuer:"Skill India Digital", date:"Mar 2025", status:"Completed", url:"https://github.com/Nitya-nama/Certificates/blob/main/skill-india.pdf" },
+  { title:"Microsoft Power BI Professional Certificate", issuer:"Microsoft", date:null, status:"In Progress", url:null },
 ];
 
 const BLOG = [
@@ -159,13 +159,16 @@ function Tag({ label, c }) {
   );
 }
 
-function SkillBar({ name, pct, delay, c }) {
+const LEVEL_WIDTH = { Expert:95, Advanced:78, Intermediate:58, Learning:35 };
+
+function SkillBar({ name, level, delay, c }) {
   const [ref, v] = useInView(0.05);
+  const pct = LEVEL_WIDTH[level] ?? 50;
   return (
     <div ref={ref} style={{ marginBottom:20 }}>
       <div style={{ display:"flex", justifyContent:"space-between", marginBottom:8 }}>
         <span style={{ fontFamily:mono, fontSize:13, color:c.sub }}>{name}</span>
-        <span style={{ fontFamily:mono, fontSize:12, color:c.dim }}>{pct}%</span>
+        <span style={{ fontFamily:mono, fontSize:11, color:c.dim, letterSpacing:"0.04em" }}>{level}</span>
       </div>
       <div style={{ height:3, background:c.barBg, borderRadius:2, overflow:"hidden" }}>
         <div style={{ height:"100%", width:v?`${pct}%`:"0%", background:c.barGrad, borderRadius:2, transition:`width 1.1s cubic-bezier(.4,0,.2,1) ${delay}ms` }} />
@@ -323,7 +326,7 @@ export default function App() {
       }}>
         <div style={{ display:"inline-flex", alignItems:"center", gap:8, marginBottom:28, border:"1px solid rgba(34,197,94,0.35)", borderRadius:20, padding:"6px 16px", background:"rgba(34,197,94,0.08)" }}>
           <span style={{ width:7, height:7, borderRadius:"50%", background:"#22c55e", animation:"pulse 2s ease infinite" }} />
-          <span style={{ fontFamily:mono, fontSize:11, color:"#22c55e", letterSpacing:"0.03em" }}>Open to UK Internships &amp; Placement Year 2026/27</span>
+          <span style={{ fontFamily:mono, fontSize:11, color:"#22c55e", letterSpacing:"0.03em" }}>Actively Seeking Placement Year Opportunities</span>
         </div>
 
         <h1 style={{
@@ -347,10 +350,9 @@ export default function App() {
         </p>
 
         <p style={{ fontFamily:mono, fontSize: mob?"13px":"clamp(13px,1.3vw,16px)", color:c.sub, maxWidth:560, lineHeight:1.9, marginBottom:40 }}>
-          Focused on Python, Machine Learning, Deep Learning, SQL, and Power BI, with hands-on
-          experience in Data Analytics, Computer Vision, Natural Language Processing and AI.
-          Looking to bring data-driven problem solving to a UK Data Science, Machine Learning
-          or Business Intelligence team.
+          Building intelligent data products using Machine Learning, Deep Learning, Data
+          Analytics, and Business Intelligence. Passionate about solving real-world problems
+          with Python, SQL, Power BI, and scalable AI systems.
         </p>
 
         <div style={{ display:"flex", gap:12, justifyContent:"center", flexWrap:"wrap", marginBottom:36 }}>
@@ -358,14 +360,43 @@ export default function App() {
             style={{ fontFamily:sans, fontSize:14, fontWeight:600, color:"#fff", background:"linear-gradient(135deg,#06b6d4,#0891b2)", border:"none", padding: mob?"11px 24px":"12px 32px", borderRadius:6, cursor:"pointer", transition:"opacity 0.15s" }}
             onMouseEnter={e => e.currentTarget.style.opacity="0.85"}
             onMouseLeave={e => e.currentTarget.style.opacity="1"}>
-            View Projects
+            🚀 Explore My Work
           </button>
-          <button onClick={() => goTo("#contact")}
-            style={{ fontFamily:sans, fontSize:14, color:c.sub, background:"transparent", border:`1px solid ${c.border}`, padding: mob?"11px 24px":"12px 32px", borderRadius:6, cursor:"pointer", transition:"border-color 0.15s,color 0.15s" }}
+          <a href="nitya_resume.pdf" download
+            style={{ display:"inline-block", fontFamily:sans, fontSize:14, color:c.text, background:"transparent", border:`1px solid ${c.border}`, padding: mob?"11px 24px":"12px 32px", borderRadius:6, cursor:"pointer", textDecoration:"none", transition:"border-color 0.15s,color 0.15s" }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor=c.borderH; e.currentTarget.style.color=c.acc; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor=c.border; e.currentTarget.style.color=c.text; }}>
+            📄 Download Resume
+          </a>
+          <a href="mailto:nityanama101@gmail.com"
+            style={{ display:"inline-block", fontFamily:sans, fontSize:14, color:c.sub, background:"transparent", border:`1px solid ${c.border}`, padding: mob?"11px 24px":"12px 32px", borderRadius:6, cursor:"pointer", textDecoration:"none", transition:"border-color 0.15s,color 0.15s" }}
             onMouseEnter={e => { e.currentTarget.style.borderColor=c.borderH; e.currentTarget.style.color=c.text; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor=c.border; e.currentTarget.style.color=c.sub; }}>
-            Get in Touch
-          </button>
+            💼 Hire Me
+          </a>
+        </div>
+      </section>
+
+      {/* ══ RECRUITER SNAPSHOT ══ */}
+      <section id="snapshot" style={{ ...SEC, paddingTop: mob?32:40, paddingBottom: mob?32:40 }}>
+        <div style={WRAP}>
+          <FadeUp>
+            <div style={{ display:"grid", gridTemplateColumns: mob?"1fr 1fr":"repeat(auto-fit,minmax(150px,1fr))", gap:12 }}>
+              {[
+                { icon:"📍", label:"Location", value:"Hatfield, UK" },
+                { icon:"🎓", label:"Education", value:"MSc Data Science with ML" },
+                { icon:"💼", label:"Looking For", value:"Placement Year, Grad Roles" },
+                { icon:"🧠", label:"Interests", value:"ML, AI, Data Analytics" },
+                { icon:"📅", label:"Availability", value:"Immediate" },
+              ].map(s => (
+                <div key={s.label} style={{ padding:"16px 14px", background:c.bgCard, border:`1px solid ${c.border}`, borderRadius:10, textAlign:"center" }}>
+                  <div style={{ fontSize:20, marginBottom:8 }}>{s.icon}</div>
+                  <div style={{ fontFamily:mono, fontSize:10, color:c.acc, letterSpacing:"0.08em", textTransform:"uppercase", marginBottom:6 }}>{s.label}</div>
+                  <div style={{ fontFamily:sans, fontSize:12, color:c.text, lineHeight:1.4 }}>{s.value}</div>
+                </div>
+              ))}
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -397,10 +428,10 @@ export default function App() {
                   </div>
                   <div style={{ padding:"18px 20px 22px", fontFamily:mono, fontSize:12, lineHeight:2.0 }}>
                     {[
-                      {cmd:"who_am_i",out:["nitya_nama"]},
-                      {cmd:"cat skills.txt",out:["python, sql, power bi,","scikit-learn, tensorflow,","pandas, ml, deep learning"]},
-                      {cmd:"echo $STATUS",out:["msc data science w/ ml @ herts"]},
-                      {cmd:"echo $LOCATION",out:["bengaluru, india"]},
+                      {cmd:"whoami",out:["Nitya Nama"]},
+                      {cmd:"python --version",out:["Python 3.12"]},
+                      {cmd:"current_focus",out:["Machine Learning","Data Analytics","Power BI"]},
+                      {cmd:"seeking",out:["UK Placement Year","Graduate Roles"]},
                     ].map(({cmd,out}) => (
                       <div key={cmd} style={{ marginBottom:4 }}>
                         <div><span style={{ color:c.acc }}>$ </span><span style={{ color:c.text }}>{cmd}</span></div>
@@ -417,10 +448,13 @@ export default function App() {
             <div>
               <FadeUp delay={80}>
                 <p style={{ fontFamily:sans, fontSize:15, color:c.sub, lineHeight:1.85, marginBottom:18 }}>
-                  I'm Nitya — an MSc Data Science with Machine Learning student at the University of Hertfordshire, building scalable ML systems with Python, SQL and Power BI, trained on real-world datasets of 20,000+ records.
+                  I'm Nitya — a Data Science student building scalable ML systems with Python, SQL and Power BI, trained on real-world datasets of 20,000+ records.
+                </p>
+                <p style={{ fontFamily:sans, fontSize:14, color:c.dim, lineHeight:1.85, marginBottom:18 }}>
+                  I specialise in the full Data Science workflow: exploratory data analysis, feature engineering and machine learning model training, through to Power BI dashboards and production-ready Flask/REST APIs. I'm currently looking for UK internships, placement year opportunities and graduate roles in Data Science, Machine Learning and AI Engineering.
                 </p>
                 <p style={{ fontFamily:sans, fontSize:14, color:c.dim, lineHeight:1.85, marginBottom:40 }}>
-                  I specialise in the full Data Science workflow: exploratory data analysis, feature engineering and machine learning model training, through to Power BI dashboards and production-ready Flask/REST APIs. I'm currently looking for UK internships, placement year opportunities and graduate roles in Data Science, Machine Learning and AI Engineering.
+                  Currently pursuing an MSc Data Science with Machine Learning at the University of Hertfordshire, where I'm expanding my expertise in predictive analytics, deep learning, cloud computing, and large-scale data engineering.
                 </p>
               </FadeUp>
 
@@ -428,7 +462,9 @@ export default function App() {
                 <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", border:`1px solid ${c.border}`, borderRadius:12, marginBottom:36, overflow:"hidden" }}>
                   {[
                     {v:"20K+",l:"Records Processed",s:"ML pipeline · Internships"},
-                    {v:"3+",l:"Live Deployments",s:"Production · Vercel"},
+                    {v:"6+",l:"Production Projects",s:"Full-stack · ML · APIs"},
+                    {v:"3",l:"Internships",s:"Data Science · AI/ML · Analytics"},
+                    {v:"5+",l:"Hackathons",s:"Team builds · Rapid prototyping"},
                   ].map((s,i) => (
                     <div key={s.l} style={{ padding: mob?"16px 14px":"22px 20px", borderRight:i%2===0?`1px solid ${c.border}`:"none", borderBottom:i<2?`1px solid ${c.border}`:"none", background:c.bgCard }}>
                       <div style={{ fontFamily:sans, fontSize: mob?22:26, fontWeight:700, color:c.acc, marginBottom:4 }}>{s.v}</div>
@@ -444,38 +480,26 @@ export default function App() {
                   <span style={{ fontFamily:sans, fontSize:12, color:"#22c55e", border:"1px solid rgba(34,197,94,0.3)", padding:"5px 12px", borderRadius:20, background:"rgba(34,197,94,0.07)" }}>● Open to Opportunities</span>
                   <span style={{ fontFamily:sans, fontSize:12, color:c.sub, border:`1px solid ${c.border}`, padding:"5px 12px", borderRadius:20 }}>📍 Bengaluru, India</span>
                 </div>
-                <p style={{ fontFamily:mono, fontSize:10, color:c.acc, letterSpacing:"0.12em", marginBottom:14, textTransform:"uppercase" }}>Credentials</p>
+                <p style={{ fontFamily:mono, fontSize:10, color:c.acc, letterSpacing:"0.12em", marginBottom:14, textTransform:"uppercase" }}>Professional Certifications</p>
                 <div style={{ display:"grid", gridTemplateColumns: mob?"1fr":"1fr 1fr", gap:10 }}>
-                  {[
-                    {title:"AI/ML Engineering Professional",issuer:"Microsoft",date:"Dec 2025",url:"https://github.com/Nitya-nama/Certificates/blob/main/MICROSOFT_AI_ML.jpeg"},
-                    {title:"Machine Learning Specialization",issuer:"Stanford · Coursera",date:"Jul 2025",url:"https://github.com/Nitya-nama/Certificates/blob/main/STANFORD_ML.jpeg"},
-                    {title:"Generative AI",issuer:"Google Cloud",date:"Feb 2025",url:"https://github.com/Nitya-nama/Certificates/blob/main/GOOGLEGENAI.png"},
-                    {title:"Python for Data Science",issuer:"Skill India Digital",date:"Mar 2025",url:"https://github.com/Nitya-nama/Certificates/blob/main/skill-india.pdf"},
-                  ].map(cert => (
-                    <a key={cert.title} href={cert.url} target="_blank" rel="noopener noreferrer"
-                      style={{ padding:"14px 16px", background:c.bgCard, textDecoration:"none", border:`1px solid ${c.border}`, borderRadius:8, transition:"border-color 0.15s,background 0.15s", display:"block" }}
-                      onMouseEnter={e => { e.currentTarget.style.borderColor=c.borderH; e.currentTarget.style.background=c.accD; }}
-                      onMouseLeave={e => { e.currentTarget.style.borderColor=c.border; e.currentTarget.style.background=c.bgCard; }}>
-                      <div style={{ fontFamily:sans, fontSize:12, fontWeight:600, color:c.text, marginBottom:3, lineHeight:1.4 }}>{cert.title}</div>
-                      <div style={{ fontFamily:mono, fontSize:10, color:c.dim, marginBottom:8 }}>{cert.issuer}</div>
-                      <div style={{ display:"flex", justifyContent:"space-between" }}>
-                        <span style={{ fontFamily:mono, fontSize:10, color:c.sub }}>{cert.date}</span>
-                        <span style={{ fontFamily:mono, fontSize:10, color:c.acc }}>verify →</span>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-
-                <p style={{ fontFamily:mono, fontSize:10, color:c.acc, letterSpacing:"0.12em", marginTop:28, marginBottom:14, textTransform:"uppercase" }}>Professional Certifications</p>
-                <div style={{ display:"grid", gridTemplateColumns: mob?"1fr":"1fr 1fr", gap:10 }}>
-                  {CERTS.map(cert => (
-                    <div key={cert.title}
-                      style={{ padding:"14px 16px", background:c.bgCard, border:`1px solid ${c.border}`, borderRadius:8, opacity: cert.status==="Planned" ? 0.55 : 1 }}>
-                      <div style={{ fontFamily:sans, fontSize:12, fontWeight:600, color:c.text, marginBottom:3, lineHeight:1.4 }}>{cert.title}</div>
-                      <div style={{ fontFamily:mono, fontSize:10, color:c.dim, marginBottom:8 }}>{cert.issuer}</div>
-                      <span style={{ fontFamily:mono, fontSize:10, color:cert.status==="In Progress"?c.acc:c.dim, border:`1px solid ${cert.status==="In Progress"?c.tagBord:c.border}`, padding:"2px 8px", borderRadius:10, background: cert.status==="In Progress"?c.tagBg:"transparent" }}>{cert.status}</span>
-                    </div>
-                  ))}
+                  {CERTS.map(cert => {
+                    const Wrapper = cert.url ? "a" : "div";
+                    return (
+                      <Wrapper key={cert.title} {...(cert.url ? { href:cert.url, target:"_blank", rel:"noopener noreferrer" } : {})}
+                        style={{ padding:"14px 16px", background:c.bgCard, textDecoration:"none", border:`1px solid ${c.border}`, borderRadius:8, transition:"border-color 0.15s,background 0.15s", display:"block" }}
+                        onMouseEnter={cert.url ? (e => { e.currentTarget.style.borderColor=c.borderH; e.currentTarget.style.background=c.accD; }) : undefined}
+                        onMouseLeave={cert.url ? (e => { e.currentTarget.style.borderColor=c.border; e.currentTarget.style.background=c.bgCard; }) : undefined}>
+                        <div style={{ fontFamily:sans, fontSize:12, fontWeight:600, color:c.text, marginBottom:3, lineHeight:1.4 }}>{cert.title}</div>
+                        <div style={{ fontFamily:mono, fontSize:10, color:c.dim, marginBottom:8 }}>{cert.issuer}</div>
+                        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+                          <span style={{ fontFamily:mono, fontSize:10, color:c.sub }}>{cert.date || ""}</span>
+                          {cert.status === "In Progress"
+                            ? <span style={{ fontFamily:mono, fontSize:10, color:c.acc, border:`1px solid ${c.tagBord}`, padding:"2px 8px", borderRadius:10, background:c.tagBg }}>In Progress</span>
+                            : <span style={{ fontFamily:mono, fontSize:10, color:c.acc }}>verify →</span>}
+                        </div>
+                      </Wrapper>
+                    );
+                  })}
                 </div>
               </FadeUp>
             </div>
@@ -500,24 +524,48 @@ export default function App() {
                   onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
                   style={{ padding:"24px", background:h?c.accD:c.bgCard, border:`1px solid ${h?c.borderH:c.border}`, borderRadius:12, opacity:v?1:0, transform:v?"translateY(0)":"translateY(20px)", transition:"opacity 0.55s ease,transform 0.55s ease,background 0.15s,border-color 0.15s" }}>
                   <div style={{ fontSize:28, marginBottom:14, lineHeight:1 }}>{p.icon}</div>
-                  <h3 style={{ fontFamily:sans, fontSize:16, fontWeight:600, color:c.text, marginBottom:10 }}>{p.title}</h3>
-                  <p style={{ fontFamily:sans, fontSize:13, color:c.sub, lineHeight:1.75, marginBottom:18 }}>{p.desc}</p>
-                  <div style={{ flexWrap:"wrap", display:"flex", marginBottom:18 }}>
-                    {p.tags.map(t => <Tag key={t} label={t} c={c} />)}
+                  <h3 style={{ fontFamily:sans, fontSize:16, fontWeight:600, color:c.text, marginBottom:14 }}>{p.title}</h3>
+
+                  <p style={{ fontFamily:mono, fontSize:10, color:c.acc, letterSpacing:"0.08em", textTransform:"uppercase", marginBottom:4 }}>Problem</p>
+                  <p style={{ fontFamily:sans, fontSize:13, color:c.sub, lineHeight:1.65, marginBottom:12 }}>{p.problem}</p>
+
+                  <p style={{ fontFamily:mono, fontSize:10, color:c.acc, letterSpacing:"0.08em", textTransform:"uppercase", marginBottom:4 }}>Solution</p>
+                  <p style={{ fontFamily:sans, fontSize:13, color:c.sub, lineHeight:1.65, marginBottom:14 }}>{p.solution}</p>
+
+                  <p style={{ fontFamily:mono, fontSize:10, color:c.acc, letterSpacing:"0.08em", textTransform:"uppercase", marginBottom:6 }}>Tech Stack</p>
+                  <div style={{ flexWrap:"wrap", display:"flex", marginBottom:14 }}>
+                    {p.stack.map(t => <Tag key={t} label={t} c={c} />)}
                   </div>
+
+                  <div style={{ display:"flex", flexDirection:"column", gap:5, marginBottom:18 }}>
+                    {p.metrics.map(m => (
+                      <span key={m} style={{ fontFamily:mono, fontSize:12, color:c.text }}>
+                        <span style={{ color:"#22c55e" }}>✓ </span>{m}
+                      </span>
+                    ))}
+                  </div>
+
                   <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
                     <a href={p.github} target="_blank" rel="noopener noreferrer"
                       style={{ fontFamily:mono, fontSize:11, color:c.sub, border:`1px solid ${c.border}`, padding:"6px 14px", borderRadius:4, textDecoration:"none", transition:"color 0.15s,border-color 0.15s" }}
                       onMouseEnter={e => { e.currentTarget.style.color=c.acc; e.currentTarget.style.borderColor=c.borderH; }}
                       onMouseLeave={e => { e.currentTarget.style.color=c.sub; e.currentTarget.style.borderColor=c.border; }}>
-                      GitHub →
+                      📂 Source Code
                     </a>
                     {p.live && (
                       <a href={p.live} target="_blank" rel="noopener noreferrer"
                         style={{ fontFamily:mono, fontSize:11, color:c.acc, border:`1px solid ${c.borderH}`, padding:"6px 14px", borderRadius:4, textDecoration:"none", background:c.accD, transition:"background 0.15s" }}
                         onMouseEnter={e => e.currentTarget.style.background=c.accDH}
                         onMouseLeave={e => e.currentTarget.style.background=c.accD}>
-                        Live ↗
+                        🚀 Live Demo
+                      </a>
+                    )}
+                    {p.article && (
+                      <a href={p.article} target="_blank" rel="noopener noreferrer"
+                        style={{ fontFamily:mono, fontSize:11, color:c.sub, border:`1px solid ${c.border}`, padding:"6px 14px", borderRadius:4, textDecoration:"none", transition:"color 0.15s,border-color 0.15s" }}
+                        onMouseEnter={e => { e.currentTarget.style.color=c.acc; e.currentTarget.style.borderColor=c.borderH; }}
+                        onMouseLeave={e => { e.currentTarget.style.color=c.sub; e.currentTarget.style.borderColor=c.border; }}>
+                        📖 Case Study
                       </a>
                     )}
                   </div>
@@ -544,11 +592,36 @@ export default function App() {
                     <span style={{ fontSize:22 }}>{cat.icon}</span>
                     <h3 style={{ fontFamily:sans, fontWeight:600, fontSize:16, color:c.text, margin:0 }}>{cat.cat}</h3>
                   </div>
-                  {cat.items.map(([name,pct],i) => (
-                    <SkillBar key={name} name={name} pct={pct} delay={i*90+ci*40} c={c} />
+                  {cat.items.map(([name,level],i) => (
+                    <SkillBar key={name} name={name} level={level} delay={i*90+ci*40} c={c} />
                   ))}
                 </div>
               </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ AWARDS & ACHIEVEMENTS ══ */}
+      <section id="awards" style={SEC}>
+        <div style={WRAP}>
+          <FadeUp>
+            <div style={{ color:c.acc }}>
+              <SectionHeader label="awards" title="Awards & Achievements" sub="Beyond the projects — hackathons, certifications and academic milestones." />
+            </div>
+          </FadeUp>
+          <div style={{ display:"grid", gridTemplateColumns: mob?"1fr":"repeat(auto-fit,minmax(220px,1fr))", gap:16 }}>
+            {[
+              { icon:"🏆", label:"Hackathons Participated", value:"5+" },
+              { icon:"🥇", label:"Certifications Completed", value:"4" },
+              { icon:"📜", label:"Academic Achievement", value:"MSc Data Science with ML — Univ. of Hertfordshire" },
+              { icon:"🌟", label:"Open-Source Contributions", value:"Active on GitHub" },
+            ].map(a => (
+              <div key={a.label} style={{ padding:"22px 20px", background:c.bgCard, border:`1px solid ${c.border}`, borderRadius:12, textAlign:"center" }}>
+                <div style={{ fontSize:24, marginBottom:10 }}>{a.icon}</div>
+                <div style={{ fontFamily:sans, fontSize: mob?18:20, fontWeight:700, color:c.acc, marginBottom:6, lineHeight:1.3 }}>{a.value}</div>
+                <div style={{ fontFamily:mono, fontSize:11, color:c.dim }}>{a.label}</div>
+              </div>
             ))}
           </div>
         </div>
@@ -670,7 +743,7 @@ export default function App() {
         <div style={{ ...WRAP, display:"flex", flexDirection:"column", alignItems:"center" }}>
           <FadeUp>
             <div style={{ color:c.acc }}>
-              <SectionHeader label="contact" title="Let's Build Something" sub="Currently seeking Placement Year, Data Science Internship, Machine Learning Internship, Graduate Data Analyst and Business Intelligence Analyst roles in the UK." />
+              <SectionHeader label="contact" title="Let's Build Data-Driven Solutions Together" sub="Currently seeking Placement Year, Data Science Internship, Machine Learning Internship, Graduate Data Analyst and Business Intelligence Analyst roles in the UK." />
             </div>
             <div style={{ display:"flex", gap:8, flexWrap:"wrap", justifyContent:"center", marginBottom:32 }}>
               {["Placement Year","Data Science Internship","Machine Learning Internship","Graduate Data Analyst","Business Intelligence Analyst"].map(role => (
@@ -700,7 +773,10 @@ export default function App() {
       {/* ══ FOOTER ══ */}
       <footer style={{ padding: mob?"20px":"24px 48px", borderTop:`1px solid ${c.border}` }}>
         <div style={{ maxWidth:1100, margin:"0 auto", padding:`0 ${px}`, display:"flex", flexDirection: mob?"column":"row", gap: mob?8:0, justifyContent:"space-between", alignItems:"center", textAlign: mob?"center":"left" }}>
-          <span style={{ fontFamily:mono, fontSize:11, color:c.dim }}>© 2026 Nitya Nama. All rights reserved.</span>
+          <span style={{ fontFamily:mono, fontSize:11, color:c.dim, display:"flex", flexDirection:"column", gap:2 }}>
+            <span>© 2026 Nitya Nama. All rights reserved.</span>
+            <span style={{ fontSize:10, color:c.dimmer }}>Built with React • TypeScript • Vite</span>
+          </span>
           <div style={{ display:"flex", gap:20 }}>
             {[{l:"GitHub",h:"https://github.com/Nitya-nama"},{l:"LinkedIn",h:"https://www.linkedin.com/in/nitya-nama/"},{l:"X",h:"https://x.com/nitya_nama"}].map(s => (
               <a key={s.l} href={s.h} target="_blank" rel="noopener noreferrer"
