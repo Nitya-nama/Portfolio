@@ -1,65 +1,47 @@
 import { useState, useEffect, useRef } from "react";
 
 /* ─── DATA ────────────────────────────────────────────── */
-const NAV = ["About","Projects","Skills","Experience","Blog","Contact"];
+const NAV = ["About","Projects","Skills","Experience","Articles","Contact"];
+const NAV_HREF = { About:"about", Projects:"projects", Skills:"skills", Experience:"experience", Articles:"blog", Contact:"contact" };
 
 const PROJECTS = [
-  { icon:"🧬", title:"PharmaGuard", desc:"AI-powered pharmacogenomic risk prediction platform. Analyzes patient .VCF genetic data to predict personalized drug safety risks using CPIC-aligned guidelines with explainable AI-driven clinical recommendations.", tags:["React (Vite)","Flask","Python","CPIC Guidelines","VCF Genomics","Vercel"], github:"https://github.com/Chandan-N-2004/RIFT2026_AI_HUNTERS", live:"https://rift-2026-ai-hunters.vercel.app/" },
-  { icon:"🎬", title:"CineRent ERP", desc:"Scalable full-stack ERP system with JWT-based multi-role auth managing 1,000+ records across billing, inventory, and rental modules. 35% workflow efficiency improvement via modularised React + Redux.", tags:["React","Node.js","JWT Auth","Redux","MySQL","REST APIs"], github:"https://github.com/Nitya-nama/Cinerent_ERP", live:"https://cinerent-erp.vercel.app/" },
-  { icon:"🧠", title:"Emotion Detection AI", desc:"Transformer-based NLP emotion classifier using Hugging Face BERT achieving 92% accuracy. Optimised inference pipeline reduced API latency to under 250ms with Flask backend caching.", tags:["Flask","BERT","Hugging Face","NLP","Python","REST APIs"], github:"https://github.com/Nitya-nama/Emotion-detection", live:null },
-  { icon:"📈", title:"EcoVision", desc:"AI-enhanced economic forecasting web app. ARIMA + LSTM models achieve 88% accuracy. Flask REST API with interactive JS dashboard cuts prediction time by 40% via feature engineering.", tags:["Python","Flask","ARIMA","LSTM","Scikit-learn","JavaScript"], github:"https://github.com/Nitya-nama/ECOVISION", live:"https://ecovision-frontend-gold.vercel.app/" },
-  { icon:"🍽️",title:"SMARTBITE AI",desc:"An AI-powered voice-based food ordering platform that enables users to place orders using natural voice commands. Built with Django, MySQL, AI speech-to-text processing, secure authentication, real-time cart management, and Razorpay payment integration.",tags:["Python","Django","AI","MySQL","Razorpay"],github:"https://github.com/Nitya-nama/SMARTBITE_AI",live:null},
-  { icon:"🏠",title:"Real Estate Pool",desc:"A collaborative real estate platform that connects buyers, sellers, and investors through a centralized property marketplace. Features property listings, search and filtering, user management, and streamlined property discovery with a modern web interface.",tags:["Python","Django","MySQL","HTML/CSS","JavaScript"],github:"https://github.com/HackHunters2025/Real_Estate_Pool",live:null},
+  { icon:"🧬", title:"PharmaGuard", desc:"Problem: clinicians lack a fast way to flag patient-specific drug safety risks from raw genetic data. Solution: an ML-driven pharmacogenomic risk prediction platform that parses patient .VCF genomic datasets and applies CPIC-aligned guideline logic to generate explainable, clinician-readable drug safety recommendations. Key features: automated VCF parsing, rule-based + ML risk scoring, explainable-AI output. Tech stack: Python, Flask, React (Vite). Deployment: Vercel + Flask API.", tags:["Python","Machine Learning","Flask","React (Vite)","CPIC Guidelines","VCF Genomics","Explainable AI","Vercel"], github:"https://github.com/Chandan-N-2004/RIFT2026_AI_HUNTERS", live:"https://rift-2026-ai-hunters.vercel.app/" },
+  { icon:"🎬", title:"CineRent ERP", desc:"Problem: a media rental business needed a single system to manage billing, inventory and rentals with role-based access. Solution: a full-stack ERP with JWT-based multi-role authentication managing 1,000+ records across billing, inventory and rental modules, cutting manual workflow time by 35% through a modularised React + Redux architecture. Tech stack: React, Node.js, Redux, MySQL, REST APIs. Deployment: Vercel.", tags:["React","Node.js","SQL","Redux","JWT Auth","REST APIs","Data Modelling"], github:"https://github.com/Nitya-nama/Cinerent_ERP", live:"https://cinerent-erp.vercel.app/" },
+  { icon:"🧠", title:"Emotion Detection AI", desc:"Problem: customer support tools need to understand emotional tone in text at scale. Solution: a transformer-based NLP emotion classification model fine-tuned on Hugging Face BERT, achieving 92% classification accuracy, with an optimised inference pipeline that cut API latency to under 250ms via Flask backend caching. Dataset: labelled text-emotion corpus. Tech stack: Python, Flask, Hugging Face Transformers, BERT, NLP, REST APIs.", tags:["Python","NLP","Deep Learning","BERT","Hugging Face","Flask","REST APIs"], github:"https://github.com/Nitya-nama/Emotion-detection", live:null },
+  { icon:"📈", title:"EcoVision", desc:"Problem: forecasting economic indicators manually is slow and error-prone. Solution: an AI-enhanced time-series forecasting application combining ARIMA and LSTM deep learning models to reach 88% forecast accuracy, exposed via a Flask REST API with an interactive dashboard, cutting prediction turnaround by 40% through targeted feature engineering. Tech stack: Python, Flask, ARIMA, LSTM, Scikit-learn, JavaScript. Deployment: Vercel + Flask API.", tags:["Python","Time-Series Forecasting","ARIMA","LSTM","Deep Learning","Scikit-learn","Flask","Data Visualisation"], github:"https://github.com/Nitya-nama/ECOVISION", live:"https://ecovision-frontend-gold.vercel.app/" },
+  { icon:"🍽️",title:"SMARTBITE AI",desc:"Problem: ordering food hands-free needed reliable natural-language voice understanding. Solution: an AI-powered voice-based food ordering platform using speech-to-text processing to interpret natural voice commands, with secure authentication, real-time cart management and Razorpay payment integration. Tech stack: Python, Django, MySQL, AI speech-to-text, Razorpay API.",tags:["Python","Django","AI","NLP","MySQL","REST APIs","Razorpay"],github:"https://github.com/Nitya-nama/SMARTBITE_AI",live:null},
+  { icon:"🏠",title:"Real Estate Pool",desc:"Problem: buyers, sellers and investors lacked one centralised place to discover and manage property listings. Solution: a collaborative real estate marketplace with property listings, advanced search and filtering, and user management, streamlining property discovery through a clean, modern interface. Tech stack: Python, Django, MySQL, HTML/CSS, JavaScript.",tags:["Python","Django","SQL","Data Analysis","HTML/CSS","JavaScript"],github:"https://github.com/HackHunters2025/Real_Estate_Pool",live:null},
 ];
 
 const SKILLS = [
-  {
-    cat: "AI & Machine Learning",
-    icon: "🧠",
-    items: [
-      ["Scikit-learn", 92],
-      ["BERT / Transformers", 90],
-      ["TensorFlow / PyTorch", 85],
-      ["Feature Engineering", 90],
-      ["ARIMA / LSTM", 84]
-    ]
-  },
-
-  {
-    cat: "Full Stack Development",
-    icon: "🌐",
-    items: [
-      ["Python / Flask", 95],
-      ["React / Vite", 90],
-      ["JavaScript", 88],
-      ["REST APIs / JWT", 92],
-      ["Node.js", 80]
-    ]
-  },
-
-  {
-    cat: "Data, Cloud & DevOps",
-    icon: "☁️",
-    items: [
-      ["Pandas / NumPy", 95],
-      ["SQL (MySQL/PostgreSQL)", 90],
-      ["Power BI / Tableau", 85],
-      ["AWS / Cloud", 78],
-      ["Git / CI/CD", 88]
-    ]
-  }
+  { cat: "Programming", icon: "💻", items: [["Python", 92], ["SQL", 88], ["Java", 78], ["JavaScript", 82]] },
+  { cat: "Machine Learning", icon: "🧠", items: [["Scikit-Learn", 90], ["TensorFlow", 84], ["PyTorch", 80], ["XGBoost", 82]] },
+  { cat: "Data Analytics", icon: "📊", items: [["Power BI", 85], ["Pandas", 92], ["NumPy", 90], ["Excel", 88]] },
+  { cat: "Visualization", icon: "📈", items: [["Power BI", 85], ["Matplotlib", 86], ["Plotly", 80], ["Seaborn", 82]] },
+  { cat: "Backend", icon: "🌐", items: [["Flask", 85], ["FastAPI", 78], ["REST APIs", 88]] },
+  { cat: "Databases", icon: "🗄️", items: [["PostgreSQL", 82], ["MySQL", 86], ["MongoDB", 76]] },
+  { cat: "Tools", icon: "🛠️", items: [["Git", 90], ["GitHub", 90], ["Docker", 74], ["Linux", 78]] },
+  { cat: "Cloud", icon: "☁️", items: [["Azure (Learning)", 55]] },
 ];
 
 const EXP = [
-  { period:"Jan — May 2026", role:"Python Full Stack Developer", co:"QSpiders (A UNIT OF TEST YANTRA SOFTWARE SOLUTIONS LTD.), Bengaluru",
-    bullets:["Developing and deploying full-stack web applications using Python, Flask, and RESTful APIs with end-to-end feature delivery in an Agile environment.","Designing RESTful APIs, Oracle SQL schemas, and dynamic UI components applying MVC architecture, Git, and CI/CD best practices.","Applying clean architecture and scalable system design principles across frontend and backend services."],
-    tags:["Python","Flask","Oracle SQL","REST APIs","MVC"], cert:"https://github.com/Nitya-nama/Certificates/blob/main/PYSPIDERS.pdf" },
+  { period:"Jan — May 2026", role:"Data Science Intern", co:"QSpiders (A UNIT OF TEST YANTRA SOFTWARE SOLUTIONS LTD.), Bengaluru",
+    bullets:["Performed exploratory data analysis (EDA) and data cleaning on structured datasets to surface trends and prepare data for modelling.","Built and evaluated machine learning models in Python using Scikit-learn, applying feature engineering to improve model performance.","Created data visualisations to communicate model evaluation results and analytical findings to technical and non-technical stakeholders."],
+    tags:["Python","EDA","Data Cleaning","Machine Learning","Feature Engineering","Scikit-Learn","Data Visualisation","Model Evaluation"], cert:"https://github.com/Nitya-nama/Certificates/blob/main/PYSPIDERS.pdf" },
   { period:"Feb – Mar 2025", role:"AI/ML Intern", co:"Happy Inbox",
-    bullets:["Engineered supervised ML models on 20,000+ user interaction logs using Scikit-learn, achieving 65% improvement in email recommendation accuracy.","Automated data preprocessing pipelines using Pandas and NumPy, reducing model training time by 40%.","Conducted reproducible experiments for performance optimisation and documented results for team review."],
-    tags:["Scikit-learn","Pandas","NumPy","Python","ML Pipelines"], cert:"https://github.com/Nitya-nama/Certificates/blob/main/happyinbox.png" },
+    bullets:["Engineered supervised machine learning models on 20,000+ user interaction logs using Scikit-learn, achieving a 65% improvement in recommendation accuracy.","Built automated data preprocessing and feature engineering pipelines with Pandas and NumPy, reducing model training time by 40%.","Ran reproducible experiments for model evaluation and performance optimisation, documenting results for team review."],
+    tags:["Python","Machine Learning","Scikit-learn","Pandas","NumPy","Feature Engineering"], cert:"https://github.com/Nitya-nama/Certificates/blob/main/happyinbox.png" },
   { period:"Mar – Apr 2025", role:"Data Analyst Associate", co:"Excelerate",
-    bullets:["Built interactive financial dashboards in Looker Studio and Power BI, improving reporting visibility by 35% for stakeholders.","Refactored complex SQL queries and normalised data models in MySQL, reducing report generation time by 40%.","Implemented ML-driven trend analysis across multiple departments to support stakeholder decision-making."],
-    tags:["Looker Studio","Power BI","MySQL","SQL Optimisation"], cert:"https://github.com/Nitya-nama/Certificates/blob/main/Excelerate.png" },
+    bullets:["Built interactive data dashboards in Power BI and Looker Studio, improving reporting visibility by 35% for business stakeholders.","Wrote and optimised complex SQL queries and normalised data models in MySQL, reducing report generation time by 40%.","Applied statistical trend analysis across departments to support data-driven stakeholder decision-making."],
+    tags:["Power BI","SQL","Data Analysis","MySQL","Looker Studio","Business Intelligence"], cert:"https://github.com/Nitya-nama/Certificates/blob/main/Excelerate.png" },
+];
+
+const ROLES = ["Aspiring Data Scientist","Machine Learning Engineer","Data Analyst","Business Intelligence Analyst","AI Engineer"];
+
+const CERTS = [
+  { title:"Microsoft Power BI Professional Certificate", issuer:"Microsoft", status:"In Progress" },
+  { title:"Placeholder — Future Certification", issuer:"—", status:"Planned" },
+  { title:"Placeholder — Future Certification", issuer:"—", status:"Planned" },
 ];
 
 const BLOG = [
@@ -112,14 +94,36 @@ function useInView(threshold = 0.08) {
   return [ref, v];
 }
 
-function useMobile() {
+function useTypewriter(words, typeMs = 55, pauseMs = 1400, deleteMs = 30) {
+  const [text, setText] = useState("");
+  const [i, setI] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+  useEffect(() => {
+    const current = words[i % words.length];
+    let timeout;
+    if (!deleting && text.length < current.length) {
+      timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), typeMs);
+    } else if (!deleting && text.length === current.length) {
+      timeout = setTimeout(() => setDeleting(true), pauseMs);
+    } else if (deleting && text.length > 0) {
+      timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), deleteMs);
+    } else if (deleting && text.length === 0) {
+      setDeleting(false);
+      setI(n => n + 1);
+    }
+    return () => clearTimeout(timeout);
+  }, [text, deleting, i, words, typeMs, pauseMs, deleteMs]);
+  return text;
+}
+
+function useMobile(threshold = 768) {
   const [mob, setMob] = useState(false);
   useEffect(() => {
-    const check = () => setMob(window.innerWidth < 768);
+    const check = () => setMob(window.innerWidth < threshold);
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
-  }, []);
+  }, [threshold]);
   return mob;
 }
 
@@ -197,6 +201,8 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const mob = useMobile();
+  const navCompact = useMobile(1040);
+  const typed = useTypewriter(ROLES);
 
   useEffect(() => { const s = localStorage.getItem("ny-theme"); if (s) setDark(s==="dark"); }, []);
   const toggle = () => setDark(d => { const n=!d; localStorage.setItem("ny-theme",n?"dark":"light"); return n; });
@@ -246,10 +252,10 @@ export default function App() {
         </button>
 
         {/* Desktop nav */}
-        {!mob && (
+        {!navCompact && (
           <div style={{ display:"flex", alignItems:"center", gap:24 }}>
             {NAV.map(n => (
-              <button key={n} onClick={() => goTo(`#${n.toLowerCase()}`)}
+              <button key={n} onClick={() => goTo(`#${NAV_HREF[n]}`)}
                 style={{ background:"none", border:"none", cursor:"pointer", fontFamily:sans, fontSize:14, color:c.sub, transition:"color 0.15s", padding:0 }}
                 onMouseEnter={e => e.currentTarget.style.color=c.text}
                 onMouseLeave={e => e.currentTarget.style.color=c.sub}>
@@ -270,7 +276,7 @@ export default function App() {
         )}
 
         {/* Mobile: theme + hamburger */}
-        {mob && (
+        {navCompact && (
           <div style={{ display:"flex", alignItems:"center", gap:16 }}>
             <button onClick={toggle} style={{ background:"none", border:"none", cursor:"pointer", fontFamily:mono, fontSize:12, color:c.dim, padding:0 }}>
               {dark ? "☀" : "☾"}
@@ -286,7 +292,7 @@ export default function App() {
       </nav>
 
       {/* Mobile slide-down menu */}
-      {mob && (
+      {navCompact && (
         <div style={{
           position:"fixed", top:60, left:0, right:0, zIndex:299,
           background: dark?"#0a0a0f":"#ffffff",
@@ -297,7 +303,7 @@ export default function App() {
           transition:"max-height 0.3s ease, padding 0.3s ease",
         }}>
           {NAV.map(n => (
-            <button key={n} onClick={() => goTo(`#${n.toLowerCase()}`)}
+            <button key={n} onClick={() => goTo(`#${NAV_HREF[n]}`)}
               style={{ display:"block", width:"100%", textAlign:"left", background:"none", border:"none", cursor:"pointer", fontFamily:sans, fontSize:16, color:c.sub, padding:"12px 0", borderBottom:`1px solid ${c.border}` }}>
               {n}
             </button>
@@ -317,7 +323,7 @@ export default function App() {
       }}>
         <div style={{ display:"inline-flex", alignItems:"center", gap:8, marginBottom:28, border:"1px solid rgba(34,197,94,0.35)", borderRadius:20, padding:"6px 16px", background:"rgba(34,197,94,0.08)" }}>
           <span style={{ width:7, height:7, borderRadius:"50%", background:"#22c55e", animation:"pulse 2s ease infinite" }} />
-          <span style={{ fontFamily:mono, fontSize:11, color:"#22c55e", letterSpacing:"0.03em" }}>Available for new projects</span>
+          <span style={{ fontFamily:mono, fontSize:11, color:"#22c55e", letterSpacing:"0.03em" }}>Open to UK Internships &amp; Placement Year 2026/27</span>
         </div>
 
         <h1 style={{
@@ -330,14 +336,21 @@ export default function App() {
           Nitya Nama
         </h1>
 
-        <p style={{ fontFamily:mono, fontSize:13, color:c.dim, marginBottom:14, letterSpacing:"0.04em" }}>@nitya_nama</p>
+        <p style={{ fontFamily:mono, fontSize:13, color:c.dim, marginBottom:6, letterSpacing:"0.04em" }}>@nitya_nama</p>
+
+        <p style={{ fontFamily:sans, fontSize: mob?"14px":"clamp(14px,1.6vw,18px)", color:c.text, fontWeight:600, marginBottom:14, lineHeight:1.5, maxWidth:560 }}>
+          MSc Data Science with Machine Learning Student at the University of Hertfordshire
+        </p>
+
+        <p style={{ fontFamily:mono, fontSize: mob?"14px":"clamp(14px,1.6vw,18px)", color:c.acc, marginBottom:20, letterSpacing:"0.02em", minHeight:"1.4em" }}>
+          {typed}<span style={{ color:c.acc, animation:"blink 1.1s step-end infinite" }}>|</span>
+        </p>
 
         <p style={{ fontFamily:mono, fontSize: mob?"13px":"clamp(13px,1.3vw,16px)", color:c.sub, maxWidth:560, lineHeight:1.9, marginBottom:40 }}>
-          AI Engineer | Data Scientist | Machine Learning Engineer
-          Building intelligent systems with Machine Learning, Data Science, 
-          and Full-Stack Development. From data pipelines and predictive models 
-          to Flask APIs and React applications, transform ideas into scalable, 
-          production-ready products.
+          Focused on Python, Machine Learning, Deep Learning, SQL, and Power BI, with hands-on
+          experience in Data Analytics, Computer Vision, Natural Language Processing and AI.
+          Looking to bring data-driven problem solving to a UK Data Science, Machine Learning
+          or Business Intelligence team.
         </p>
 
         <div style={{ display:"flex", gap:12, justifyContent:"center", flexWrap:"wrap", marginBottom:36 }}>
@@ -361,11 +374,11 @@ export default function App() {
         <div style={WRAP}>
           <FadeUp>
             <div style={{ color:c.acc }}>
-              <SectionHeader label="about" title="Building AI That Ships" sub="Not just research — production systems that scale." />
+              <SectionHeader label="about" title="Data-Driven, Ready to Deploy" sub="From exploratory analysis to production ML systems." />
             </div>
           </FadeUp>
 
-          <div style={{ display:"grid", gridTemplateColumns: mob?"1fr":"360px 1fr", gap: mob?32:64, alignItems:"start" }}>
+          <div style={{ display:"grid", gridTemplateColumns: mob?"1fr":"minmax(240px,360px) 1fr", gap: mob?32: "clamp(24px,4vw,64px)", alignItems:"start" }}>
             {/* Photo + terminal */}
             <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
               <FadeUp delay={60}>
@@ -385,8 +398,8 @@ export default function App() {
                   <div style={{ padding:"18px 20px 22px", fontFamily:mono, fontSize:12, lineHeight:2.0 }}>
                     {[
                       {cmd:"who_am_i",out:["nitya_nama"]},
-                      {cmd:"cat skills.txt",out:["python, flask, react,","bert, scikit-learn,","sql, mongodb, vercel"]},
-                      {cmd:"echo $STATUS",out:["building intelligent systems"]},
+                      {cmd:"cat skills.txt",out:["python, sql, power bi,","scikit-learn, tensorflow,","pandas, ml, deep learning"]},
+                      {cmd:"echo $STATUS",out:["msc data science w/ ml @ herts"]},
                       {cmd:"echo $LOCATION",out:["bengaluru, india"]},
                     ].map(({cmd,out}) => (
                       <div key={cmd} style={{ marginBottom:4 }}>
@@ -404,10 +417,10 @@ export default function App() {
             <div>
               <FadeUp delay={80}>
                 <p style={{ fontFamily:sans, fontSize:15, color:c.sub, lineHeight:1.85, marginBottom:18 }}>
-                  I'm Nitya — an AI &amp; Full Stack Engineer who has shipped ML models trained on 20,000+ records, built production REST APIs serving real users, and deployed full-stack intelligent systems.
+                  I'm Nitya — an MSc Data Science with Machine Learning student at the University of Hertfordshire, building scalable ML systems with Python, SQL and Power BI, trained on real-world datasets of 20,000+ records.
                 </p>
                 <p style={{ fontFamily:sans, fontSize:14, color:c.dim, lineHeight:1.85, marginBottom:40 }}>
-                  I specialise in end-to-end ML systems: from feature engineering and model training (BERT, ARIMA, LSTM) to Flask REST APIs and React frontends. I don't just build models — I build systems that work in production.
+                  I specialise in the full Data Science workflow: exploratory data analysis, feature engineering and machine learning model training, through to Power BI dashboards and production-ready Flask/REST APIs. I'm currently looking for UK internships, placement year opportunities and graduate roles in Data Science, Machine Learning and AI Engineering.
                 </p>
               </FadeUp>
 
@@ -452,6 +465,18 @@ export default function App() {
                     </a>
                   ))}
                 </div>
+
+                <p style={{ fontFamily:mono, fontSize:10, color:c.acc, letterSpacing:"0.12em", marginTop:28, marginBottom:14, textTransform:"uppercase" }}>Professional Certifications</p>
+                <div style={{ display:"grid", gridTemplateColumns: mob?"1fr":"1fr 1fr", gap:10 }}>
+                  {CERTS.map(cert => (
+                    <div key={cert.title}
+                      style={{ padding:"14px 16px", background:c.bgCard, border:`1px solid ${c.border}`, borderRadius:8, opacity: cert.status==="Planned" ? 0.55 : 1 }}>
+                      <div style={{ fontFamily:sans, fontSize:12, fontWeight:600, color:c.text, marginBottom:3, lineHeight:1.4 }}>{cert.title}</div>
+                      <div style={{ fontFamily:mono, fontSize:10, color:c.dim, marginBottom:8 }}>{cert.issuer}</div>
+                      <span style={{ fontFamily:mono, fontSize:10, color:cert.status==="In Progress"?c.acc:c.dim, border:`1px solid ${cert.status==="In Progress"?c.tagBord:c.border}`, padding:"2px 8px", borderRadius:10, background: cert.status==="In Progress"?c.tagBg:"transparent" }}>{cert.status}</span>
+                    </div>
+                  ))}
+                </div>
               </FadeUp>
             </div>
           </div>
@@ -463,10 +488,10 @@ export default function App() {
         <div style={WRAP}>
           <FadeUp>
             <div style={{ color:c.acc }}>
-              <SectionHeader label="projects" title="What I've Built" sub="A selection of AI-powered products and tools." />
+              <SectionHeader label="projects" title="What I've Built" sub="Machine learning, data analytics and AI-powered products." />
             </div>
           </FadeUp>
-          <div style={{ display:"grid", gridTemplateColumns: mob?"1fr": "repeat(3,1fr)", gap:16 }}>
+          <div style={{ display:"grid", gridTemplateColumns: mob?"1fr": "repeat(auto-fit,minmax(300px,1fr))", gap:16 }}>
             {PROJECTS.map((p, i) => {
               const [ref, v] = useInView(0.06);
               const [h, setH] = useState(false);
@@ -511,7 +536,7 @@ export default function App() {
               <SectionHeader label="skills" title="Tech Stack" sub="The tools and technologies I work with daily." />
             </div>
           </FadeUp>
-          <div style={{ display:"grid", gridTemplateColumns: mob?"1fr":"repeat(3,1fr)", gap:16 }}>
+          <div style={{ display:"grid", gridTemplateColumns: mob?"1fr":"repeat(auto-fit,minmax(240px,1fr))", gap:16 }}>
             {SKILLS.map((cat, ci) => (
               <FadeUp key={cat.cat} delay={ci*80}>
                 <div style={{ padding:"28px", background:c.bgCard, border:`1px solid ${c.border}`, borderRadius:12 }}>
@@ -534,7 +559,7 @@ export default function App() {
         <div style={WRAP}>
           <FadeUp>
             <div style={{ color:c.acc }}>
-              <SectionHeader label="experience" title="Where I've Worked" sub="From ML pipelines to full-stack production systems." />
+              <SectionHeader label="experience" title="Where I've Worked" sub="From data cleaning and EDA to ML models and BI dashboards." />
             </div>
           </FadeUp>
 
@@ -586,7 +611,7 @@ export default function App() {
         <div style={WRAP}>
           <FadeUp>
             <div style={{ color:c.acc }}>
-              <SectionHeader label="blog" title="Writing & Thinking" sub="Thoughts on AI engineering, ML systems, and building products." />
+              <SectionHeader label="articles" title="Technical Articles" sub="Writing on data science, machine learning, and ML systems." />
             </div>
           </FadeUp>
           <div style={{ display:"grid", gridTemplateColumns: mob?"1fr":"1fr 1fr", gap:16 }}>
@@ -645,7 +670,12 @@ export default function App() {
         <div style={{ ...WRAP, display:"flex", flexDirection:"column", alignItems:"center" }}>
           <FadeUp>
             <div style={{ color:c.acc }}>
-              <SectionHeader label="contact" title="Let's Build Something" sub="Have a project in mind? I'm always open to discussing new opportunities." />
+              <SectionHeader label="contact" title="Let's Build Something" sub="Currently seeking Placement Year, Data Science Internship, Machine Learning Internship, Graduate Data Analyst and Business Intelligence Analyst roles in the UK." />
+            </div>
+            <div style={{ display:"flex", gap:8, flexWrap:"wrap", justifyContent:"center", marginBottom:32 }}>
+              {["Placement Year","Data Science Internship","Machine Learning Internship","Graduate Data Analyst","Business Intelligence Analyst"].map(role => (
+                <span key={role} style={{ fontFamily:mono, fontSize:11, color:c.acc, border:`1px solid ${c.tagBord}`, padding:"5px 12px", borderRadius:20, background:c.tagBg }}>{role}</span>
+              ))}
             </div>
             <a href="mailto:nityanama101@gmail.com"
               style={{ fontFamily:mono, fontSize: mob?"15px":"clamp(14px,2vw,20px)", color:c.acc, textDecoration:"none", display:"inline-block", borderBottom:`1px solid ${c.acc}`, paddingBottom:6, marginBottom:40, transition:"opacity 0.15s" }}
