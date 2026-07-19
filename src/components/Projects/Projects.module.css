@@ -1,14 +1,11 @@
-/* ── Featured project ─────────────────────────── */
+/* ── Featured project: text above, huge screenshot below ─────── */
 .featured {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 120px;
 }
 
-.featuredThumb {
-  height: 340px;
+.featuredText {
+  max-width: 640px;
+  margin-bottom: 40px;
 }
 
 .featuredLabel {
@@ -21,18 +18,18 @@
 }
 
 .featuredTitle {
-  font-size: clamp(30px, 3.8vw, 44px);
+  font-size: clamp(32px, 4.4vw, 48px);
   font-weight: 700;
   letter-spacing: -0.03em;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .featuredOverview {
   font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.75;
-  margin-bottom: 24px;
-  max-width: 52ch;
+  margin-bottom: 26px;
+  max-width: 58ch;
 }
 
 .stackRow {
@@ -83,117 +80,112 @@
   padding: 9px 18px;
 }
 
-/* ── Secondary: horizontal band ───────────────── */
+.featuredVisual {
+  height: 560px;
+}
+
+/* ── Secondary projects: alternating rows ─────────────────────── */
 .subLabel {
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--text-tertiary);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin: 96px 0 24px;
-}
-
-.band {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 40px;
-  align-items: center;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--hairline);
   margin-bottom: 40px;
 }
 
-.bandThumb {
-  height: 200px;
-}
-
-.bandBody {
-  min-width: 0;
-}
-
-/* ── Secondary: compact tile pair ─────────────── */
-.tileGrid {
+.row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+  padding: 48px 0;
 }
 
-.tile {
-  display: flex;
-  flex-direction: column;
+.row + .row {
+  border-top: 1px solid var(--hairline);
 }
 
-.tileThumb {
-  height: 130px;
-  margin-bottom: 20px;
+.rowReverse {
+  grid-template-columns: 0.9fr 1.1fr;
 }
 
-.cardBody {
+.rowReverse .rowVisual {
+  order: 2;
+}
+
+.rowReverse .rowBody {
+  order: 1;
+}
+
+.rowVisual {
+  height: 280px;
+}
+
+.rowBody {
   min-width: 0;
 }
 
 .title {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  letter-spacing: -0.015em;
 }
 
 .overview {
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.75;
   color: var(--text-secondary);
-  margin-bottom: 16px;
-}
-
-.cardStack {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  color: var(--text-tertiary);
   margin-bottom: 18px;
+  max-width: 46ch;
 }
 
-.cardStack span:not(:last-child)::after {
+.rowStack {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 20px;
+}
+
+.rowStack span:not(:last-child)::after {
   content: "·";
-  margin: 0 6px;
+  margin: 0 7px;
   color: var(--hairline-strong);
 }
 
-.cardLinks {
+.rowLinks {
   display: flex;
-  gap: 16px;
+  gap: 18px;
 }
 
-.cardLink {
-  font-size: 12.5px;
+.rowLink {
+  font-size: 13px;
   color: var(--text-tertiary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.cardLink:hover {
+.rowLink:hover {
   color: var(--accent);
 }
 
 @media (max-width: 860px) {
-  .featured {
+  .featuredVisual {
+    height: 320px;
+  }
+  .row,
+  .rowReverse {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
+    padding: 36px 0;
   }
-  .featuredThumb {
-    height: 240px;
-    order: -1;
+  .rowReverse .rowVisual,
+  .rowReverse .rowBody {
+    order: initial;
   }
-  .band {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .bandThumb {
-    height: 180px;
-    order: -1;
-  }
-  .tileGrid {
-    grid-template-columns: 1fr;
+  .rowVisual {
+    height: 220px;
   }
 }

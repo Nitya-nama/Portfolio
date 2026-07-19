@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 420px;
+  min-height: 460px;
 }
 
 .svg {
@@ -11,11 +11,31 @@
   overflow: visible;
 }
 
+/* Background depth layer */
+.bgNode {
+  fill: var(--text-tertiary);
+  opacity: 0.18;
+}
+
+.bgLayer {
+  animation: bgDrift 34s ease-in-out infinite;
+}
+
+.bgLayerAlt {
+  animation: bgDrift 40s ease-in-out infinite reverse;
+}
+
+@keyframes bgDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-14px, 10px); }
+}
+
+/* Vector field */
 .field {
   fill: none;
   stroke: var(--accent);
   stroke-width: 1;
-  opacity: 0.08;
+  opacity: 0.09;
 }
 
 .fieldSlow {
@@ -26,16 +46,46 @@
   animation: fieldDrift 24s ease-in-out infinite reverse;
 }
 
+@keyframes fieldDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(8px, -10px); }
+}
+
+/* Radar pings from hub nodes */
+.ping {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: ping 4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+}
+
+.pingViolet {
+  stroke: var(--violet, #a78bfa);
+}
+
+@keyframes ping {
+  0% { transform: scale(0.4); opacity: 0.55; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+/* Main mesh */
 .edge {
   stroke: var(--text-tertiary);
   stroke-width: 1;
   fill: none;
-  opacity: 0.3;
+  opacity: 0.32;
 }
 
 .edgeAccent {
   stroke: var(--accent);
-  opacity: 0.5;
+  opacity: 0.55;
+}
+
+.edgeViolet {
+  stroke: var(--violet, #a78bfa);
+  opacity: 0.4;
 }
 
 .node {
@@ -46,8 +96,12 @@
   fill: var(--accent);
 }
 
+.nodeViolet {
+  fill: var(--violet, #a78bfa);
+}
+
 .nodeGlow {
-  opacity: 0.35;
+  opacity: 0.4;
 }
 
 .pulse {
@@ -65,30 +119,37 @@
 }
 
 .drift {
-  animation: drift 14s ease-in-out infinite;
+  animation: dashDrift 14s linear infinite;
 }
 
 .group {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Data-flow particles travel along edges via SMIL animateMotion (see TSX) */
+.particle {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 3px var(--accent));
+}
+
+.particleViolet {
+  fill: var(--violet, #a78bfa);
+  filter: drop-shadow(0 0 3px var(--violet, #a78bfa));
+}
+
 @keyframes pulse {
   0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.9; }
+  50% { opacity: 0.95; }
 }
 
-@keyframes drift {
-  0%, 100% { stroke-dashoffset: 0; }
-  50% { stroke-dashoffset: 26; }
-}
-
-@keyframes fieldDrift {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(6px, -8px); }
+@keyframes dashDrift {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -60; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pulse, .pulseSlow, .pulseSlower, .drift, .fieldSlow, .fieldSlower {
+  .pulse, .pulseSlow, .pulseSlower, .drift,
+  .fieldSlow, .fieldSlower, .bgLayer, .bgLayerAlt, .ping {
     animation: none;
   }
   .group {

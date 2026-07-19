@@ -1,0 +1,63 @@
+.frame {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-soft);
+  border: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease;
+}
+
+.frame:hover {
+  border-color: var(--hairline-strong);
+}
+
+.chrome {
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--hairline);
+  background: var(--bg-elevated);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hairline-strong);
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.mockSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* mock UI palette - deliberately monochrome + one accent */
+.mockBg { fill: var(--bg-soft); }
+.mockPanel { fill: var(--bg-elevated); stroke: var(--hairline); stroke-width: 1; }
+.mockLine { fill: var(--hairline-strong); }
+.mockLineFaint { fill: var(--hairline); }
+.mockAccent { fill: var(--accent); }
+.mockAccentSoft { fill: var(--accent); opacity: 0.18; }
+.mockStroke { fill: none; stroke: var(--accent); stroke-width: 1.5; }
+.mockStrokeMuted { fill: none; stroke: var(--text-tertiary); stroke-width: 1; opacity: 0.5; }

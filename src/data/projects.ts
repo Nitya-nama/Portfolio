@@ -7,6 +7,8 @@ export interface Project {
   github: string;
   live: string | null;
   article: string | null;
+  image: string;
+  visual: "dashboard" | "report" | "mobile" | "erp";
 }
 
 export const projects: Project[] = [
@@ -20,6 +22,8 @@ export const projects: Project[] = [
     github: "https://github.com/Nitya-nama/ECOVISION",
     live: "https://ecovision-frontend-gold.vercel.app/",
     article: null,
+    image: "/screenshots/ecovision.png",
+    visual: "dashboard",
   },
   {
     title: "PharmaGuard",
@@ -31,6 +35,8 @@ export const projects: Project[] = [
     github: "https://github.com/Chandan-N-2004/RIFT2026_AI_HUNTERS",
     live: "https://rift-2026-ai-hunters.vercel.app/",
     article: null,
+    image: "/screenshots/pharmaguard.png",
+    visual: "report",
   },
   {
     title: "SmartBite AI",
@@ -42,6 +48,8 @@ export const projects: Project[] = [
     github: "https://github.com/Nitya-nama/SMARTBITE_AI",
     live: null,
     article: null,
+    image: "/screenshots/smartbite.png",
+    visual: "mobile",
   },
   {
     title: "CineRent ERP",
@@ -53,5 +61,7 @@ export const projects: Project[] = [
     github: "https://github.com/Nitya-nama/Cinerent_ERP",
     live: "https://cinerent-erp.vercel.app/",
     article: "https://medium.com/@nityanama101/how-i-built-a-production-ready-erp-system-with-react-flask-b4ee7bc1d407",
+    image: "/screenshots/cinerent.png",
+    visual: "erp",
   },
 ];

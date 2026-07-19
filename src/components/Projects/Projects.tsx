@@ -2,7 +2,7 @@ import { Github, ExternalLink, FileText } from "lucide-react";
 import styles from "./Projects.module.css";
 import { projects } from "../../data/projects";
 import { Reveal } from "../Reveal/Reveal";
-import { AbstractThumb } from "../illustrations/AbstractThumb";
+import { ProjectVisual } from "../illustrations/ProjectVisual";
 
 export function Projects() {
   const [featured, ...rest] = projects;
@@ -18,10 +18,10 @@ export function Projects() {
           </div>
         </Reveal>
 
-        {/* Featured project */}
+        {/* Featured project: text above, huge screenshot below */}
         <div className={styles.featured}>
           <Reveal delay={40}>
-            <div>
+            <div className={styles.featuredText}>
               <p className={styles.featuredLabel}>Featured project</p>
               <h3 className={styles.featuredTitle}>{featured.title}</h3>
               <p className={styles.featuredOverview}>{featured.detail}</p>
@@ -72,94 +72,52 @@ export function Projects() {
               </div>
             </div>
           </Reveal>
-          <Reveal delay={120} className={styles.featuredThumb}>
-            <AbstractThumb seed={0} featured />
+          <Reveal delay={140}>
+            <ProjectVisual
+              image={featured.image}
+              visual={featured.visual}
+              title={featured.title}
+              className={styles.featuredVisual}
+            />
           </Reveal>
         </div>
 
-        {/* Remaining projects: varied layout, not identical cards */}
+        {/* Remaining projects: alternating image/text rows, not identical cards */}
         <p className={styles.subLabel}>More projects</p>
 
-        {rest[0] && (
-          <Reveal delay={40} className={styles.band}>
-            <div className={styles.bandThumb}>
-              <AbstractThumb seed={1} />
-            </div>
-            <div className={styles.bandBody}>
-              <h3 className={styles.title}>{rest[0].title}</h3>
-              <p className={styles.overview}>{rest[0].detail}</p>
-              <p className={styles.cardStack}>
-                {rest[0].stack.map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
-              </p>
-              <div className={styles.cardLinks}>
-                <a href={rest[0].github} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
-                  Source
-                </a>
-                {rest[0].live && (
-                  <a href={rest[0].live} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
-                    Live Demo
-                  </a>
-                )}
-                {rest[0].article && (
-                  <a href={rest[0].article} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
-                    Case Study
-                  </a>
-                )}
+        {rest.map((p, i) => (
+          <Reveal key={p.title} delay={i * 60}>
+            <div className={`${styles.row} ${i % 2 === 1 ? styles.rowReverse : ""}`}>
+              <div className={styles.rowVisual}>
+                <ProjectVisual image={p.image} visual={p.visual} title={p.title} />
               </div>
-            </div>
-          </Reveal>
-        )}
-
-        <div className={styles.tileGrid}>
-          {rest.slice(1).map((p, i) => (
-            <Reveal key={p.title} delay={i * 60} className={styles.tile}>
-              <div className={styles.tileThumb}>
-                <AbstractThumb seed={i + 2} />
-              </div>
-              <div className={styles.cardBody}>
+              <div className={styles.rowBody}>
                 <h3 className={styles.title}>{p.title}</h3>
                 <p className={styles.overview}>{p.detail}</p>
-                <p className={styles.cardStack}>
+                <p className={styles.rowStack}>
                   {p.stack.map((t) => (
                     <span key={t}>{t}</span>
                   ))}
                 </p>
-                <div className={styles.cardLinks}>
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.cardLink}
-                  >
+                <div className={styles.rowLinks}>
+                  <a href={p.github} target="_blank" rel="noopener noreferrer" className={styles.rowLink}>
                     Source
                   </a>
                   {p.live && (
-                    <a
-                      href={p.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.cardLink}
-                    >
+                    <a href={p.live} target="_blank" rel="noopener noreferrer" className={styles.rowLink}>
                       Live Demo
                     </a>
                   )}
                   {p.article && (
-                    <a
-                      href={p.article}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.cardLink}
-                    >
+                    <a href={p.article} target="_blank" rel="noopener noreferrer" className={styles.rowLink}>
                       Case Study
                     </a>
                   )}
                 </div>
               </div>
-            </Reveal>
-          ))}
-        </div>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );
