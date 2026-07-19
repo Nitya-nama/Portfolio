@@ -1,4 +1,5 @@
 import { Navbar } from "./components/Navbar/Navbar";
+import { Atmosphere } from "./components/Atmosphere/Atmosphere";
 import { Hero } from "./components/Hero/Hero";
 import { About } from "./components/About/About";
 import { Experience } from "./components/Experience/Experience";
@@ -15,8 +16,9 @@ export default function App() {
 
   return (
     <>
+      <Atmosphere />
       <Navbar theme={theme} onToggleTheme={toggle} />
-      <main>
+      <main style={{ position: "relative", zIndex: 1 }}>
         <Hero />
         <About />
         <Experience />

@@ -16,16 +16,14 @@ export function Skills() {
 
         <div className={styles.grid}>
           {skills.map((group, i) => (
-            <Reveal key={group.category} delay={i * 50}>
-              <div className={`card ${styles.card}`}>
-                <h3 className={styles.category}>{group.category}</h3>
-                <div className={styles.items}>
-                  {group.items.map((item) => (
-                    <span key={item} className="tag">
-                      {item}
-                    </span>
-                  ))}
-                </div>
+            <Reveal key={group.category} delay={i * 40} className={styles.group}>
+              <h3 className={styles.category}>{group.category}</h3>
+              <div className={styles.items}>
+                {group.items.map((item) => (
+                  <span key={item} className={styles.item}>
+                    {item}
+                  </span>
+                ))}
               </div>
             </Reveal>
           ))}

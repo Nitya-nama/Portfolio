@@ -13,22 +13,21 @@ export function Writing() {
           </div>
         </Reveal>
 
-        <div className={styles.grid}>
+        <div className={styles.list}>
           {writing.map((post, i) => (
-            <Reveal key={post.title} delay={i * 50}>
+            <Reveal key={post.title} delay={i * 40}>
               <a
                 href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`card ${styles.card}`}
+                className={styles.row}
               >
-                <span className={`tag ${styles.tag}`}>{post.tag}</span>
-                <h3 className={styles.title}>{post.title}</h3>
-                <p className={styles.desc}>{post.desc}</p>
-                <div className={styles.meta}>
-                  <span>{post.date}</span>
-                  <span className={styles.readMore}>Read →</span>
+                <span className={styles.tag}>{post.tag}</span>
+                <div className={styles.main}>
+                  <h3 className={styles.title}>{post.title}</h3>
+                  <p className={styles.desc}>{post.desc}</p>
                 </div>
+                <span className={styles.meta}>{post.date}</span>
               </a>
             </Reveal>
           ))}

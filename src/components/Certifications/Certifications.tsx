@@ -5,6 +5,13 @@ import { Reveal } from "../Reveal/Reveal";
 
 const ALL = "All";
 
+function initials(issuer: string) {
+  const clean = issuer.split("·")[0].trim();
+  const words = clean.split(" ").filter(Boolean);
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+}
+
 export function Certifications() {
   const categories = useMemo(
     () => [ALL, ...Array.from(new Set(certifications.map((c) => c.category)))],
@@ -54,32 +61,34 @@ export function Certifications() {
           </div>
         </Reveal>
 
-        <div className={styles.grid} style={{ opacity: visible ? 1 : 0 }}>
+        <div className={styles.list} style={{ opacity: visible ? 1 : 0 }}>
           {filtered.length === 0 && <p className={styles.empty}>No certifications in this category yet.</p>}
 
           {filtered.map((cert) => (
-            <div key={cert.id} className={`card ${styles.card}`}>
-              <div className={styles.top}>
+            <div key={cert.id} className={styles.row}>
+              <div className={styles.mark}>{initials(cert.issuer)}</div>
+              <div>
                 <h3 className={styles.title}>{cert.title}</h3>
-                <span className="tag">{cert.category}</span>
+                <p className={styles.metaLine}>
+                  <span>{cert.issuer}</span>
+                  <span>{cert.category}</span>
+                  <span className={cert.completed ? styles.statusCompleted : ""}>
+                    {cert.date ? `${cert.status} · ${cert.date}` : cert.status}
+                  </span>
+                </p>
               </div>
-              <p className={styles.issuer}>{cert.issuer}</p>
-              <div className={styles.metaRow}>
-                <span className={styles.statusLine}>
-                  <span className={cert.completed ? styles.statusCompleted : ""}>{cert.status}</span>
-                  {cert.date ? ` • ${cert.date}` : ""}
-                </span>
-                {cert.credentialUrl && (
-                  <a
-                    href={cert.credentialUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.credentialLink}
-                  >
-                    View Credential →
-                  </a>
-                )}
-              </div>
+              {cert.credentialUrl ? (
+                <a
+                  href={cert.credentialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.credentialLink}
+                >
+                  View Credential →
+                </a>
+              ) : (
+                <span />
+              )}
             </div>
           ))}
         </div>

@@ -1,0 +1,39 @@
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  transition: opacity 0.3s ease;
+}
+
+.glowOne {
+  width: 60vw;
+  height: 60vw;
+  top: -20vw;
+  right: -12vw;
+  background: radial-gradient(circle, var(--glow-1), transparent 70%);
+}
+
+.glowTwo {
+  width: 50vw;
+  height: 50vw;
+  bottom: -18vw;
+  left: -14vw;
+  background: radial-gradient(circle, var(--glow-2), transparent 70%);
+}
+
+.grain {
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: overlay;
+}

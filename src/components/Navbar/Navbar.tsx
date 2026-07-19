@@ -2,16 +2,17 @@ import { useState } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import styles from "./Navbar.module.css";
 import { useScrolled } from "../../hooks/useScrolled";
+import { useActiveSection } from "../../hooks/useActiveSection";
 import type { Theme } from "../../hooks/useTheme";
 import { site } from "../../data/site";
 
 const NAV_ITEMS = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Certifications", href: "#certifications" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "#about", id: "about" },
+  { label: "Experience", href: "#experience", id: "experience" },
+  { label: "Projects", href: "#projects", id: "projects" },
+  { label: "Skills", href: "#skills", id: "skills" },
+  { label: "Certifications", href: "#certifications", id: "certifications" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
 
 interface NavbarProps {
@@ -22,6 +23,7 @@ interface NavbarProps {
 export function Navbar({ theme, onToggleTheme }: NavbarProps) {
   const scrolled = useScrolled();
   const [open, setOpen] = useState(false);
+  const active = useActiveSection(NAV_ITEMS.map((i) => i.id));
 
   const goTo = (href: string) => {
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
@@ -38,7 +40,11 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
 
           <nav className={styles.links} aria-label="Primary">
             {NAV_ITEMS.map((item) => (
-              <button key={item.href} className={styles.link} onClick={() => goTo(item.href)}>
+              <button
+                key={item.href}
+                className={`${styles.link} ${active === item.id ? styles.linkActive : ""}`}
+                onClick={() => goTo(item.href)}
+              >
                 {item.label}
               </button>
             ))}
@@ -50,7 +56,7 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
               onClick={onToggleTheme}
               aria-label="Toggle color theme"
             >
-              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+              {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
             </button>
             <a href={site.resume} download className={`btn btn-primary ${styles.resumeBtn}`}>
               Resume

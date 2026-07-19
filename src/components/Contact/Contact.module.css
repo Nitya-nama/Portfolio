@@ -5,29 +5,29 @@
 }
 
 .title {
-  font-size: clamp(26px, 3.4vw, 36px);
+  font-size: clamp(28px, 3.6vw, 40px);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 12px;
+  letter-spacing: -0.025em;
+  margin-bottom: 14px;
 }
 
 .sub {
   font-size: 15px;
   color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 32px;
+  line-height: 1.75;
+  margin-bottom: 36px;
 }
 
 .email {
-  font-size: clamp(18px, 2.4vw, 22px);
+  font-size: clamp(19px, 2.6vw, 24px);
   font-weight: 600;
   color: var(--text);
   text-decoration: none;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--hairline-strong);
   padding-bottom: 6px;
   display: inline-block;
-  margin-bottom: 32px;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  margin-bottom: 36px;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .email:hover {

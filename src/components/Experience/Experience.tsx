@@ -15,7 +15,7 @@ export function Experience() {
 
         <div className={styles.list}>
           {experience.map((exp, i) => (
-            <Reveal key={exp.role + exp.company} delay={i * 60}>
+            <Reveal key={exp.role + exp.company} delay={i * 50}>
               <div className={styles.item}>
                 <div className={styles.period}>{exp.period}</div>
                 <div>
@@ -26,13 +26,11 @@ export function Experience() {
                       <li key={b}>{b}</li>
                     ))}
                   </ul>
-                  <div className={styles.tags}>
+                  <p className={styles.tagRow}>
                     {exp.tags.map((t) => (
-                      <span key={t} className="tag">
-                        {t}
-                      </span>
+                      <span key={t}>{t}</span>
                     ))}
-                  </div>
+                  </p>
                   <a
                     href={exp.certificate}
                     target="_blank"

@@ -1,0 +1,14 @@
+.thumb {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-soft);
+  border: 1px solid var(--hairline);
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

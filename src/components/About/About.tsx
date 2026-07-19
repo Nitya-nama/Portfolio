@@ -6,16 +6,14 @@ export function About() {
   return (
     <section id="about" className="section">
       <div className="container">
-        <Reveal>
-          <div className="section-head">
-            <span className="eyebrow">About</span>
-            <h2 className="section-title">Data-driven, production-ready</h2>
-          </div>
-        </Reveal>
-
-        <Reveal delay={60}>
-          <p className={styles.paragraph}>{aboutParagraph}</p>
-        </Reveal>
+        <div className={styles.wrap}>
+          <Reveal>
+            <span className={`eyebrow ${styles.label}`}>About</span>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className={styles.paragraph}>{aboutParagraph}</p>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
