@@ -60,7 +60,7 @@ button {
 }
 
 .section {
-  padding: 128px 0;
+  padding: 144px 0;
 }
 
 .section + .section {
@@ -68,7 +68,7 @@ button {
 }
 
 .section-head {
-  margin-bottom: 56px;
+  margin-bottom: 64px;
   max-width: 640px;
 }
 
@@ -93,10 +93,10 @@ button {
 }
 
 .section-title {
-  font-size: clamp(30px, 3.6vw, 42px);
+  font-size: clamp(32px, 4.2vw, 48px);
   font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
   margin-bottom: 14px;
 }
 
@@ -125,6 +125,13 @@ button {
 .divider {
   border: none;
   border-top: 1px solid var(--hairline);
+}
+
+.index-numeral {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.02em;
 }
 
 .btn {

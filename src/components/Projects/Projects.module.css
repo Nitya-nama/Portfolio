@@ -4,11 +4,11 @@
   grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: center;
-  margin-bottom: 96px;
+  margin-bottom: 40px;
 }
 
 .featuredThumb {
-  height: 320px;
+  height: 340px;
 }
 
 .featuredLabel {
@@ -21,10 +21,10 @@
 }
 
 .featuredTitle {
-  font-size: clamp(28px, 3.4vw, 40px);
+  font-size: clamp(30px, 3.8vw, 44px);
   font-weight: 700;
-  letter-spacing: -0.025em;
-  margin-bottom: 14px;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
 }
 
 .featuredOverview {
@@ -83,41 +83,57 @@
   padding: 9px 18px;
 }
 
-/* ── Secondary grid ────────────────────────────── */
+/* ── Secondary: horizontal band ───────────────── */
 .subLabel {
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--text-tertiary);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin: 96px 0 24px;
 }
 
-.grid {
+.band {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 40px;
+  align-items: center;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: 40px;
+}
+
+.bandThumb {
+  height: 200px;
+}
+
+.bandBody {
+  min-width: 0;
+}
+
+/* ── Secondary: compact tile pair ─────────────── */
+.tileGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-.card {
+.tile {
   display: flex;
   flex-direction: column;
 }
 
-.cardThumb {
-  height: 140px;
+.tileThumb {
+  height: 130px;
   margin-bottom: 20px;
 }
 
 .cardBody {
-  padding: 0 2px 2px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  min-width: 0;
 }
 
 .title {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 8px;
@@ -147,7 +163,6 @@
 .cardLinks {
   display: flex;
   gap: 16px;
-  margin-top: auto;
 }
 
 .cardLink {
@@ -167,7 +182,18 @@
     gap: 28px;
   }
   .featuredThumb {
-    height: 220px;
+    height: 240px;
     order: -1;
+  }
+  .band {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .bandThumb {
+    height: 180px;
+    order: -1;
+  }
+  .tileGrid {
+    grid-template-columns: 1fr;
   }
 }

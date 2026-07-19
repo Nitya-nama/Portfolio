@@ -17,7 +17,10 @@ export function Experience() {
           {experience.map((exp, i) => (
             <Reveal key={exp.role + exp.company} delay={i * 50}>
               <div className={styles.item}>
-                <div className={styles.period}>{exp.period}</div>
+                <div className={styles.period}>
+                  <span className={styles.numeral}>{String(i + 1).padStart(2, "0")}</span>
+                  {exp.period}
+                </div>
                 <div>
                   <h3 className={styles.role}>{exp.role}</h3>
                   <p className={styles.company}>{exp.company}</p>

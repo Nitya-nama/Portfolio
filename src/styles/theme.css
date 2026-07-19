@@ -24,6 +24,7 @@
   --grain-opacity: 0.035;
   --glow-1: rgba(59, 130, 246, 0.10);
   --glow-2: rgba(147, 51, 234, 0.06);
+  --glow-3: rgba(16, 185, 129, 0.05);
 
   --shadow-elevated: 0 10px 40px rgba(0, 0, 0, 0.35);
 
@@ -61,6 +62,7 @@
   --grain-opacity: 0.02;
   --glow-1: rgba(47, 111, 237, 0.06);
   --glow-2: rgba(147, 51, 234, 0.04);
+  --glow-3: rgba(16, 185, 129, 0.04);
 
   --shadow-elevated: 0 20px 50px rgba(20, 20, 22, 0.08);
 

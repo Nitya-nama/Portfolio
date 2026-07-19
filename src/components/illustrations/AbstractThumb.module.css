@@ -5,6 +5,36 @@
   overflow: hidden;
   background: var(--bg-soft);
   border: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease, transform 0.3s ease;
+}
+
+.thumb:hover {
+  border-color: var(--hairline-strong);
+}
+
+.chrome {
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--hairline);
+  background: var(--bg-elevated);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hairline-strong);
+}
+
+.svgWrap {
+  flex: 1;
+  min-height: 0;
 }
 
 .svg {

@@ -1,9 +1,9 @@
 .hero {
   min-height: 94vh;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 48px;
+  gap: 32px;
   padding: calc(var(--nav-height) + 56px) 0 64px;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .illustration {
-  height: 400px;
+  height: 460px;
   position: relative;
 }
 
@@ -82,8 +82,8 @@
     min-height: auto;
   }
   .illustration {
-    height: 220px;
-    opacity: 0.7;
+    height: 260px;
+    opacity: 0.75;
     order: -1;
   }
 }

@@ -54,7 +54,15 @@
   grid-template-columns: 44px 1fr auto;
   align-items: center;
   gap: 20px;
-  padding: 20px 0;
+  padding: 20px 12px;
+  margin: 0 -12px;
+  border-radius: var(--radius-sm);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.row:hover {
+  background: var(--bg-soft);
+  transform: translateX(4px);
 }
 
 .row + .row {

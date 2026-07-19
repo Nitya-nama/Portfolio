@@ -14,11 +14,18 @@
   border-top: 1px solid var(--hairline);
 }
 
+.numeral {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--hairline-strong);
+  margin-bottom: 8px;
+  display: block;
+}
+
 .period {
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--text-tertiary);
-  padding-top: 3px;
 }
 
 .role {

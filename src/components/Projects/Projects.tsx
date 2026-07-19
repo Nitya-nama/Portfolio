@@ -73,17 +73,50 @@ export function Projects() {
             </div>
           </Reveal>
           <Reveal delay={120} className={styles.featuredThumb}>
-            <AbstractThumb seed={0} />
+            <AbstractThumb seed={0} featured />
           </Reveal>
         </div>
 
-        {/* Remaining projects */}
+        {/* Remaining projects: varied layout, not identical cards */}
         <p className={styles.subLabel}>More projects</p>
-        <div className={styles.grid}>
-          {rest.map((p, i) => (
-            <Reveal key={p.title} delay={i * 60} className={styles.card}>
-              <div className={styles.cardThumb}>
-                <AbstractThumb seed={i + 1} />
+
+        {rest[0] && (
+          <Reveal delay={40} className={styles.band}>
+            <div className={styles.bandThumb}>
+              <AbstractThumb seed={1} />
+            </div>
+            <div className={styles.bandBody}>
+              <h3 className={styles.title}>{rest[0].title}</h3>
+              <p className={styles.overview}>{rest[0].detail}</p>
+              <p className={styles.cardStack}>
+                {rest[0].stack.map((t) => (
+                  <span key={t}>{t}</span>
+                ))}
+              </p>
+              <div className={styles.cardLinks}>
+                <a href={rest[0].github} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
+                  Source
+                </a>
+                {rest[0].live && (
+                  <a href={rest[0].live} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
+                    Live Demo
+                  </a>
+                )}
+                {rest[0].article && (
+                  <a href={rest[0].article} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
+                    Case Study
+                  </a>
+                )}
+              </div>
+            </div>
+          </Reveal>
+        )}
+
+        <div className={styles.tileGrid}>
+          {rest.slice(1).map((p, i) => (
+            <Reveal key={p.title} delay={i * 60} className={styles.tile}>
+              <div className={styles.tileThumb}>
+                <AbstractThumb seed={i + 2} />
               </div>
               <div className={styles.cardBody}>
                 <h3 className={styles.title}>{p.title}</h3>
