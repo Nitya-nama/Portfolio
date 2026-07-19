@@ -2,7 +2,7 @@
 
 A modern and responsive portfolio showcasing my work in **Artificial Intelligence, Data Science, Machine Learning, and Full-Stack Development**.
 
-🌐 **Live Website:** https://nitya-nama.github.io/Portfolio/
+🌐 **Live Website:** https://nitya.dpdns.org/
 
 ---
 
@@ -49,15 +49,6 @@ A modern and responsive portfolio showcasing my work in **Artificial Intelligenc
 
 ### 🧬 PharmaGuard
 AI-powered pharmacogenomic risk prediction platform using genomic data and explainable AI.
-
-### 🍽️ SMARTBITE AI
-Voice-based food ordering system with AI speech recognition, authentication, cart management, and Razorpay integration.
-
-### 🎬 CineRent ERP
-Full-stack ERP platform for inventory, billing, rentals, and user management.
-
-### 🏠 Real Estate Pool
-Property marketplace platform for buyers, sellers, and investors.
 
 ### 📈 EcoVision
 Economic forecasting platform using ARIMA and LSTM models.
