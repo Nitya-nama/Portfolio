@@ -18,7 +18,7 @@ export const certifications: Certification[] = [
     completed: true,
     date: "Dec 2025",
     status: "Completed",
-    credentialUrl: "/certificates/microsoft-ai-ml-engineering.pdf",
+    credentialUrl: "/certificates/MICROSOFT_AI_ML.jpeg",
   },
   {
     id: "stanford-ml-specialization",
@@ -28,7 +28,7 @@ export const certifications: Certification[] = [
     completed: true,
     date: "Jul 2025",
     status: "Completed",
-    credentialUrl: "/certificates/stanford-ml-specialization.pdf",
+    credentialUrl: "/certificates/STANFORD_ML.jpeg",
   },
   {
     id: "google-cloud-generative-ai",
@@ -38,7 +38,7 @@ export const certifications: Certification[] = [
     completed: true,
     date: "Feb 2025",
     status: "Completed",
-    credentialUrl: "/certificates/google-cloud-generative-ai.pdf",
+    credentialUrl: "/certificates/GOOGLEGENAI.png",
   },
   {
     id: "python-for-data-science",
@@ -48,7 +48,7 @@ export const certifications: Certification[] = [
     completed: true,
     date: "Mar 2025",
     status: "Completed",
-    credentialUrl: "/certificates/python-for-data-science.pdf",
+    credentialUrl: "/certificates/SkillIndia.png",
   },
   {
     id: "microsoft-power-bi-professional",
