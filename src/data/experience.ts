@@ -30,7 +30,7 @@ export const experience: ExperienceItem[] = [
       "Optimised model performance through reproducible experiments, documenting results for team review.",
     ],
     tags: ["Python", "Machine Learning", "Scikit-learn", "Pandas", "NumPy", "Feature Engineering"],
-    certificate: "/certificates/HAPPYINBOX.png",
+    certificate: "/certificates/happyinbox.png",
   },
   {
     period: "Mar — Apr 2025",
@@ -42,6 +42,6 @@ export const experience: ExperienceItem[] = [
       "Developed statistical trend analysis across departments to support data-driven stakeholder decision-making.",
     ],
     tags: ["Power BI", "SQL", "Data Analysis", "MySQL", "Looker Studio", "Business Intelligence"],
-    certificate: "/certificates/EXCELERATE.png",
+    certificate: "/certificates/Excelerate.png",
   },
 ];
