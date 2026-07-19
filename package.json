@@ -1,14 +1,17 @@
 {
   "name": "nitya-nama-portfolio",
+  "homepage": "https://github.com/Nitya-nama/Portfolio",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
-    "build:github": "vite build --mode github",
-    "build:cloudflare": "vite build",
-    "deploy": "npm run build:github && gh-pages -d dist"
+    "preview": "vite preview",
+    "clean": "rm -rf dist",
+    "lint": "tsc --noEmit",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "lucide-react": "^0.546.0",

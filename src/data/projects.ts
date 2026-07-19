@@ -9,6 +9,7 @@ export interface Project {
   article: string | null;
   image: string;
   visual: "dashboard" | "report" | "mobile" | "erp";
+  badge?: { label: string; sub: string };
 }
 
 export const projects: Project[] = [
@@ -24,6 +25,7 @@ export const projects: Project[] = [
     article: null,
     image: "/screenshots/ecovision.png",
     visual: "dashboard",
+    badge: { label: "KSCST SPP 2025–26", sub: "Officially Sponsored" },
   },
   {
     title: "PharmaGuard",

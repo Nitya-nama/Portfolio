@@ -24,6 +24,12 @@ export function Projects() {
             <div className={styles.featuredText}>
               <p className={styles.featuredLabel}>Featured project</p>
               <h3 className={styles.featuredTitle}>{featured.title}</h3>
+              {featured.badge && (
+                <div className={styles.badge}>
+                  <span className={styles.badgeLabel}>{featured.badge.label}</span>
+                  <span className={styles.badgeSub}>{featured.badge.sub}</span>
+                </div>
+              )}
               <p className={styles.featuredOverview}>{featured.detail}</p>
               <p className={styles.stackRow}>
                 {featured.stack.map((t) => (
@@ -93,6 +99,12 @@ export function Projects() {
               </div>
               <div className={styles.rowBody}>
                 <h3 className={styles.title}>{p.title}</h3>
+                {p.badge && (
+                  <div className={styles.badge}>
+                    <span className={styles.badgeLabel}>{p.badge.label}</span>
+                    <span className={styles.badgeSub}>{p.badge.sub}</span>
+                  </div>
+                )}
                 <p className={styles.overview}>{p.detail}</p>
                 <p className={styles.rowStack}>
                   {p.stack.map((t) => (

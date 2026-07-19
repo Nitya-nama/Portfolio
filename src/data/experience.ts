@@ -18,7 +18,7 @@ export const experience: ExperienceItem[] = [
       "Designed data visualisations to communicate model evaluation results and analytical findings to technical and non-technical stakeholders.",
     ],
     tags: ["Python", "EDA", "Data Cleaning", "Machine Learning", "Feature Engineering", "Scikit-learn"],
-    certificate: "/certificates/QSPIDERS.png",
+    certificate: "https://github.com/Nitya-nama/Certificates/blob/main/PYSPIDERS.pdf",
   },
   {
     period: "Feb — Mar 2025",
@@ -30,7 +30,7 @@ export const experience: ExperienceItem[] = [
       "Optimised model performance through reproducible experiments, documenting results for team review.",
     ],
     tags: ["Python", "Machine Learning", "Scikit-learn", "Pandas", "NumPy", "Feature Engineering"],
-    certificate: "/certificates/happyinbox.png",
+    certificate: "https://github.com/Nitya-nama/Certificates/blob/main/happyinbox.png",
   },
   {
     period: "Mar — Apr 2025",
@@ -42,6 +42,6 @@ export const experience: ExperienceItem[] = [
       "Developed statistical trend analysis across departments to support data-driven stakeholder decision-making.",
     ],
     tags: ["Power BI", "SQL", "Data Analysis", "MySQL", "Looker Studio", "Business Intelligence"],
-    certificate: "/certificates/Excelerate.png",
+    certificate: "https://github.com/Nitya-nama/Certificates/blob/main/Excelerate.png",
   },
 ];
