@@ -9,6 +9,7 @@ export interface Certification {
   credentialUrl: string | null;
 }
 
+
 export const certifications: Certification[] = [
   {
     id: "microsoft-ai-ml-engineering",
